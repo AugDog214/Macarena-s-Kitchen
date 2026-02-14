@@ -1,3 +1,23 @@
+// ===== FAQ ACCORDION =====
+(function () {
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
 // ===== MENU TAB SWITCHING =====
 (function () {
   const tabs = document.querySelectorAll('.menu-tab');
@@ -157,17 +177,20 @@ mobileMenu.querySelectorAll('a').forEach(link => {
     nextDish();
   });
 
-  // --- SCROLL (wheel) on the hero to advance ---
-  let scrollCooldown = false;
-  hero.addEventListener('wheel', (e) => {
-    if (scrollCooldown) return;
-    if (Math.abs(e.deltaY) > 15 || Math.abs(e.deltaX) > 15) {
-      e.preventDefault();
-      scrollCooldown = true;
-      nextDish();
-      setTimeout(() => { scrollCooldown = false; }, 900);
-    }
-  }, { passive: false });
+  // --- SCROLL (wheel) on the hero to advance (desktop only) ---
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (!isTouchDevice) {
+    let scrollCooldown = false;
+    hero.addEventListener('wheel', (e) => {
+      if (scrollCooldown) return;
+      if (Math.abs(e.deltaX) > 30) {
+        e.preventDefault();
+        scrollCooldown = true;
+        nextDish();
+        setTimeout(() => { scrollCooldown = false; }, 900);
+      }
+    }, { passive: false });
+  }
 
   // Dot navigation
   dots.forEach(dot => {
@@ -177,23 +200,26 @@ mobileMenu.querySelectorAll('a').forEach(link => {
     });
   });
 
-  // Swipe support (touch)
+  // Swipe support (touch) — only horizontal swipes, doesn't block vertical scrolling
   let startX = 0;
   let startY = 0;
-  let isDragging = false;
+  let swipeTracking = false;
 
-  hero.addEventListener('pointerdown', (e) => {
+  hero.addEventListener('touchstart', (e) => {
     if (e.target.closest('a, button')) return;
-    startX = e.clientX;
-    startY = e.clientY;
-    isDragging = true;
-  });
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    swipeTracking = true;
+  }, { passive: true });
 
-  hero.addEventListener('pointerup', (e) => {
-    if (!isDragging) return;
-    isDragging = false;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(e.clientY - startY)) {
+  hero.addEventListener('touchend', (e) => {
+    if (!swipeTracking) return;
+    swipeTracking = false;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - startX;
+    const dy = touch.clientY - startY;
+    // Only trigger on clear horizontal swipes (2:1 ratio, min 60px)
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 2) {
       if (dx < 0) {
         nextDish();
       } else {
@@ -201,7 +227,23 @@ mobileMenu.querySelectorAll('a').forEach(link => {
         goToSlide(prev);
       }
     }
-  });
+  }, { passive: true });
+
+  // Desktop pointer swipe (non-touch only)
+  if (!isTouchDevice) {
+    let pointerStartX = 0;
+    hero.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('a, button')) return;
+      pointerStartX = e.clientX;
+    });
+    hero.addEventListener('pointerup', (e) => {
+      const dx = e.clientX - pointerStartX;
+      if (Math.abs(dx) > 50) {
+        if (dx < 0) nextDish();
+        else goToSlide((current - 1 + slides.length) % slides.length);
+      }
+    });
+  }
 
   // Autoplay every 5s
   function resetAutoplay() {
@@ -223,7 +265,8 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   const MOUSE_FORCE = 2.5;
 
   function getParticleCount() {
-    return window.innerWidth <= 768 ? 35 : 50;
+    if (window.innerWidth <= 768) return isTouchDevice ? 18 : 30;
+    return 50;
   }
 
   // Throttled resize
@@ -283,28 +326,30 @@ mobileMenu.querySelectorAll('a').forEach(link => {
     }
   }
 
-  function updateMousePos(e) {
-    const rect = canvas.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
+  // Mouse repulsion — desktop only (no cursor on phones)
+  if (!isTouchDevice) {
+    function updateMousePos(e) {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    }
+    hero.addEventListener('mousemove', updateMousePos);
+    hero.addEventListener('mouseleave', () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    });
   }
 
-  hero.addEventListener('mousemove', updateMousePos);
-  hero.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1) {
-      const t = e.touches[0];
-      const rect = canvas.getBoundingClientRect();
-      mouseX = t.clientX - rect.left;
-      mouseY = t.clientY - rect.top;
+  // Throttle mobile to ~30fps to save battery and prevent lag
+  const frameDuration = isTouchDevice ? 33 : 0;
+  let lastFrame = 0;
+
+  function animateSteam(timestamp) {
+    if (frameDuration && timestamp - lastFrame < frameDuration) {
+      rafId = requestAnimationFrame(animateSteam);
+      return;
     }
-  }, { passive: true });
-
-  hero.addEventListener('mouseleave', () => {
-    mouseX = -1000;
-    mouseY = -1000;
-  });
-
-  function animateSteam() {
+    lastFrame = timestamp;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = particles.length - 1; i >= 0; i--) {
@@ -358,7 +403,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (!rafId) { initParticles(); animateSteam(); }
+        if (!rafId) { initParticles(); rafId = requestAnimationFrame(animateSteam); }
       } else {
         if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
       }

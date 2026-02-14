@@ -23,22 +23,34 @@
   <meta name="geo.placename" content="Cape Coral">
   <meta name="geo.position" content="26.6285;-81.9601">
   <meta name="ICBM" content="26.6285, -81.9601">
+  <meta property="og:site_name" content="Macarena's Kitchen">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta name="theme-color" content="#0a0a0a">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/background.png" as="image">
+  <link rel="preload" href="assets/hero-text.png" as="image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "Macarena's Kitchen",
+    "alternateName": "Macarenas Kitchen",
     "image": "https://macarenaskitchen.com/assets/logo.png",
+    "logo": "https://macarenaskitchen.com/assets/logo.png",
     "url": "https://macarenaskitchen.com",
     "telephone": "+1-239-399-0995",
+    "email": "",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4647 SE 9th Pl",
@@ -50,12 +62,157 @@
     "geo": { "@type": "GeoCoordinates", "latitude": 26.6285, "longitude": -81.9601 },
     "servesCuisine": ["Latin American", "American", "Italian", "Fusion"],
     "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Debit Card",
+    "acceptsReservations": false,
+    "areaServed": {
+      "@type": "City",
+      "name": "Cape Coral",
+      "sameAs": "https://en.wikipedia.org/wiki/Cape_Coral,_Florida"
+    },
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "20:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "20:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:00" }
     ],
-    "sameAs": ["https://www.instagram.com/macarenaskitchen"]
+    "sameAs": ["https://www.instagram.com/macarenaskitchen"],
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://macarenaskitchen.com/order.html",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]
+      },
+      "deliveryMethod": ["http://purl.org/goodrelations/v1#DeliveryModePickUp","http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"]
+    },
+    "hasMenu": {
+      "@type": "Menu",
+      "name": "Macarena's Kitchen Menu",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Appetizers",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"Mozzarella Sticks","description":"Four pieces of crispy mozzarella served with marinara.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Boom Boom Shrimp","description":"Crispy shrimp tossed in a sweet and spicy sauce.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Coconut Shrimp","description":"Golden fried coconut shrimp with dipping sauce.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Chicken Wings (12pc)","description":"Your choice of sauce or naked with celery.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Chicken Fingers","description":"Four hand-breaded chicken tenders, fried golden served with fries.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Fried Calamari","description":"Lightly breaded calamari, fried until tender with marinara.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Potato Skins","description":"Crispy potato skins topped with cheese and bacon.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Eggplant Stack","description":"Breaded eggplant layered with sauce and cheese.","offers":{"@type":"Offer","price":"12.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Onion Rings","description":"Beer-battered onion rings, served crispy and golden.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Fried Shrimp Basket","description":"Breaded shrimp served with fries and cilantro sauce.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Italian Meatballs","description":"Italian-style meatballs in marinara sauce.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Salads & Soup",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"Caesar Salad","description":"Romaine, parmesan, croutons, Caesar dressing.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Sandwiches & Burgers",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"100% Angus Burger","description":"Juicy Angus beef on a toasted bun with lettuce, tomato, onions. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Grilled Chicken Sandwich","description":"Grilled chicken breast on toasted bun with lettuce, tomato, pickles. Served with fries.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Club Sandwich","description":"Turkey, ham, bacon on toasted bun with lettuce, tomato, mayo. Served with fries.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Fried Flounder Sandwich","description":"Crispy fried flounder with tartar sauce and lemon on toasted bun. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Philly Cheesesteak","description":"Sliced steak, caramelized onions, peppers, mushrooms, melted cheese on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Grilled Cheese","description":"Melted cheese on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Hot Dog","description":"Classic hot dog with caramelized onions, sauerkraut, mustard. Served with fries.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Reuben","description":"Corned beef, sauerkraut, Swiss, thousand island on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Pasta",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"Fettuccine Alfredo","description":"Fettuccine in creamy Alfredo sauce.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Rigatoni a la Vodka","description":"Rigatoni in creamy tomato vodka sauce.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Lasagna","description":"Layers of pasta, meat, sauce, mozzarella and ricotta.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Pesto Pasta","description":"Choice of pasta in fresh basil pesto sauce.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Stuffed Shells","description":"Shells stuffed with ricotta, topped with marinara, vodka or alfredo.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Chicken Marsala","description":"Chicken breast with mushrooms in Marsala wine sauce, potatoes and veggies.","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Chicken Parmesan","description":"Breaded chicken with pasta, choice of sauce, mozzarella and parmesan.","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Breakfast (Saturdays 9AM-3PM)",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"Macarena's Breakfast Platter","description":"Two eggs your way, breakfast potatoes, toast, bacon.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Breakfast Sandwich","description":"Two fried eggs with melted cheese on toast.","offers":{"@type":"Offer","price":"8.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Buttermilk Pancakes","description":"Three fluffy pancakes with butter and syrup.","offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Belgian Waffles","description":"Two golden waffles with butter and syrup.","offers":{"@type":"Offer","price":"6.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"French Toast","description":"Cinnamon battered bread grilled golden, powdered sugar.","offers":{"@type":"Offer","price":"7.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Country Omelet","description":"Three-egg omelet with peppers, onions, cheese. Breakfast potatoes.","offers":{"@type":"Offer","price":"5.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Avocado Toast","description":"Smashed avocado on toasted bread with pepper flakes or sesame.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Steak & Eggs","description":"Juicy steak with two eggs and breakfast potatoes.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Chilaquiles Brunch Plate","description":"Tortilla chips in red or green sauce, fried eggs, cream, queso fresco.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
+            {"@type":"MenuItem","name":"Triple Hit — Los Tres Golpes","description":"Mashed plantains (mangu) with fried salami, two eggs, fried cheese.","offers":{"@type":"Offer","price":"11.99","priceCurrency":"USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Desserts",
+          "hasMenuItem": [
+            {"@type":"MenuItem","name":"Dessert of the Day","description":"Ask about our freshly made dessert of the day."}
+          ]
+        }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Macarena's Kitchen",
+    "url": "https://macarenaskitchen.com"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where is Macarena's Kitchen located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Macarena's Kitchen is located inside the Fraternal Order of Eagles #3957 at 4647 SE 9th Pl, Cape Coral, FL 33904."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Macarena's Kitchen hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monday through Friday 11AM to 8PM, Saturday 9AM to 8PM (breakfast served 9AM-3PM), and Sunday 12PM to 7PM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Macarena's Kitchen deliver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Order delivery through DoorDash, Uber Eats, or Grubhub. You can also order directly from our website or call 239-399-0995 for pickup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Macarena's Kitchen serve breakfast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, breakfast is served every Saturday from 9AM to 3PM. The menu includes pancakes, waffles, omelets, steak and eggs, chilaquiles, and more."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -99,7 +256,7 @@
   <!-- HERO -->
   <section id="hero" class="hero">
     <!-- LAYER 0: Red textured background -->
-    <img src="assets/background.png" alt="" class="hero-layer hero-bg-img" aria-hidden="true">
+    <img src="assets/background.png" alt="" class="hero-layer hero-bg-img" aria-hidden="true" fetchpriority="high">
 
     <!-- LAYER 1: Hand (BEHIND the plate) z-index:1 -->
     <img src="assets/hand.webp" alt="" class="hero-layer hero-hand" draggable="false" aria-hidden="true">
@@ -120,14 +277,14 @@
     <canvas id="steamCanvas" class="hero-layer steam-canvas"></canvas>
 
     <!-- LAYER 4: Yellow text image (ON TOP of everything) z-index:4 -->
-    <img src="assets/hero-text.png" alt="Golden Outside — Kicking off with the Juiciest Insides!" class="hero-layer hero-text-img">
+    <img src="assets/hero-text.png" alt="Golden Outside — Kicking off with the Juiciest Insides!" class="hero-layer hero-text-img" fetchpriority="high">
 
     <!-- Bottom fade -->
     <div class="hero-overlay"></div>
 
     <!-- Bottom CTA -->
     <div class="hero-content">
-      <h1 class="sr-only">Macarena's Kitchen — Latin & American Fusion Restaurant in Cape Coral, FL</h1>
+      <h1 class="hero-h1">Macarena's Kitchen — Cape Coral's Latin & American Fusion</h1>
       <a href="order.html" class="btn btn-primary btn-lg">ORDER NOW</a>
       <a href="tel:+12393990995" class="hero-phone">239-399-0995</a>
     </div>
@@ -144,12 +301,12 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image">
-          <img src="assets/logo.png" alt="Macarena's Kitchen" width="300" height="300">
+          <img src="assets/logo.png" alt="Macarena's Kitchen" width="300" height="300" loading="lazy">
         </div>
         <div class="about-text">
           <h2 class="section-title">ABOUT US</h2>
-          <p>Welcome to <strong>Macarena's Kitchen</strong> — Cape Coral's spot for making sure flavors around the world American fusion is done right! From our signature Philly Cheesesteaks to homemade pasta, fresh Saturday breakfast, and everything in between — every dish is crafted with fresh ingredients and love.</p>
-          <p>Proudly located inside the <strong>Fraternal Order of Eagles #3957</strong> in Cape Coral, FL. Dine in, pick up, or order delivery.</p>
+          <p>Welcome to <strong>Macarena's Kitchen</strong> — Cape Coral's favorite spot for Latin and American fusion done right! From our signature Philly Cheesesteaks to homemade pasta, fresh Saturday breakfast, and everything in between — every dish is crafted with fresh ingredients and love in Cape Coral, Florida.</p>
+          <p>Proudly located inside the <strong>Fraternal Order of Eagles #3957</strong> on SE 9th Place in Cape Coral, FL. Dine in, pick up, or order delivery straight to your door.</p>
           <a href="https://www.eaglescc3957.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">EAGLES CLUB WEBSITE</a>
         </div>
       </div>
@@ -313,6 +470,31 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 class="section-title">FREQUENTLY ASKED</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Where is Macarena's Kitchen located?</button>
+          <div class="faq-answer"><p>Macarena's Kitchen is located inside the Fraternal Order of Eagles #3957 at 4647 SE 9th Pl, Cape Coral, FL 33904. We're in SE Cape Coral, easy to find off Del Prado Blvd.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What are your hours?</button>
+          <div class="faq-answer"><p>Monday through Friday 11AM to 8PM, Saturday 9AM to 8PM (breakfast served 9AM-3PM), and Sunday 12PM to 7PM.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Does Macarena's Kitchen deliver in Cape Coral?</button>
+          <div class="faq-answer"><p>Yes! Order delivery through DoorDash, Uber Eats, or Grubhub. You can also order directly from our website or call 239-399-0995 for pickup.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you serve breakfast?</button>
+          <div class="faq-answer"><p>Yes, breakfast is served every Saturday from 9AM to 3PM. The menu includes pancakes, waffles, omelets, steak and eggs, chilaquiles, avocado toast, and more.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LOCATION -->
   <section id="location" class="section section-dark">
     <div class="container">
@@ -382,6 +564,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
