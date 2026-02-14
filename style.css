@@ -126,7 +126,6 @@ img { max-width: 100%; height: auto; }
 
 .nav-inner {
   max-width: none;
-  margin: 0 auto;
   padding: 0 60px;
   height: 100%;
   display: flex;
@@ -182,6 +181,11 @@ img { max-width: 100%; height: auto; }
 .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.navbar.scrolled {
+  background: rgba(10,10,10,1);
+  border-bottom-color: #333;
+}
 
 .mobile-menu {
   display: none;
@@ -335,7 +339,6 @@ img { max-width: 100%; height: auto; }
   z-index: 6;
   left: 8%;
   top: 62%;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;

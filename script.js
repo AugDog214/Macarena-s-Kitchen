@@ -79,8 +79,9 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   const today = days[new Date().getDay()];
 
   document.querySelectorAll('.hours-row').forEach(row => {
-    const dayText = row.querySelector('.day')?.textContent.trim();
-    if (dayText === today) {
+    const dayEl = row.querySelector('.day');
+    const dayText = dayEl ? dayEl.textContent.trim() : '';
+    if (dayText && dayText === today) {
       row.classList.add('today');
     }
   });
@@ -172,7 +173,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
       e.stopPropagation();
-      goToSlide(parseInt(dot.dataset.index));
+      goToSlide(parseInt(dot.dataset.index, 10));
     });
   });
 
@@ -218,18 +219,28 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   let mouseY = -1000;
   let rafId = null;
 
-  const isMobile = window.innerWidth <= 768;
-  const PARTICLE_COUNT = isMobile ? 35 : 50;
-  const MOUSE_RADIUS = 80;
+  const MOUSE_RADIUS_SQ = 6400; // 80^2, avoid sqrt
   const MOUSE_FORCE = 2.5;
 
+  function getParticleCount() {
+    return window.innerWidth <= 768 ? 35 : 50;
+  }
+
+  // Throttled resize
+  let resizeTimer = null;
   function resizeCanvas() {
     const rect = hero.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
   }
   resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', () => {
+    if (resizeTimer) return;
+    resizeTimer = setTimeout(() => {
+      resizeCanvas();
+      resizeTimer = null;
+    }, 150);
+  });
 
   function createParticle(x, y) {
     return {
@@ -248,15 +259,12 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   function getEmitPosition() {
     const w = canvas.width;
     const h = canvas.height;
-    const mobile = w <= 768;
-    if (mobile) {
-      // Mobile: plate is centered, lower on screen
+    if (w <= 768) {
       return {
         x: w * 0.5 + (Math.random() - 0.5) * w * 0.25,
         y: h * 0.58 + (Math.random() - 0.5) * h * 0.06
       };
     }
-    // Desktop: plate is right side
     return {
       x: w * 0.7 + (Math.random() - 0.5) * w * 0.2,
       y: h * 0.35 + (Math.random() - 0.5) * h * 0.08
@@ -264,8 +272,9 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   }
 
   function initParticles() {
+    const count = getParticleCount();
     particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
+    for (let i = 0; i < count; i++) {
       const pos = getEmitPosition();
       const p = createParticle(pos.x, pos.y);
       p.y -= Math.random() * canvas.height * 0.35;
@@ -307,12 +316,13 @@ mobileMenu.querySelectorAll('a').forEach(link => {
       p.alpha -= p.decay;
       p.size += 0.12;
 
-      // Mouse repulsion
+      // Mouse repulsion (squared distance to avoid sqrt)
       const dx = p.x - mouseX;
       const dy = p.y - mouseY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < MOUSE_RADIUS && dist > 0) {
-        const force = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE;
+      const distSq = dx * dx + dy * dy;
+      if (distSq < MOUSE_RADIUS_SQ && distSq > 0) {
+        const dist = Math.sqrt(distSq);
+        const force = (1 - dist / 80) * MOUSE_FORCE;
         p.vx += (dx / dist) * force;
         p.vy += (dy / dist) * force;
       }
@@ -326,17 +336,21 @@ mobileMenu.querySelectorAll('a').forEach(link => {
         continue;
       }
 
+      // Simplified rendering — single soft circle instead of gradient per particle
+      ctx.globalAlpha = p.alpha * 0.5;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
       ctx.beginPath();
-      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-      grad.addColorStop(0, `rgba(255, 255, 255, ${p.alpha * 0.6})`);
-      grad.addColorStop(0.3, `rgba(245, 245, 245, ${p.alpha * 0.3})`);
-      grad.addColorStop(0.6, `rgba(230, 230, 230, ${p.alpha * 0.1})`);
-      grad.addColorStop(1, 'rgba(220, 220, 220, 0)');
-      ctx.fillStyle = grad;
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Outer glow
+      ctx.globalAlpha = p.alpha * 0.15;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 1.8, 0, Math.PI * 2);
       ctx.fill();
     }
 
+    ctx.globalAlpha = 1;
     rafId = requestAnimationFrame(animateSteam);
   }
 
