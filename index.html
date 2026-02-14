@@ -95,15 +95,44 @@
 
   <!-- HERO -->
   <section id="hero" class="hero">
-    <div class="hero-bg">
-      <img src="assets/hero-section.svg" alt="Macarena's Kitchen — Golden outside, juiciest insides" class="hero-svg hero-svg-desktop">
-      <img src="assets/hero-section-mobile.svg" alt="Macarena's Kitchen — Golden outside, juiciest insides" class="hero-svg hero-svg-mobile">
+    <!-- LAYER 0: Red textured background -->
+    <img src="assets/background.png" alt="" class="hero-layer hero-bg-img" aria-hidden="true">
+
+    <!-- LAYER 1: Hand (BEHIND the plate) z-index:1 -->
+    <img src="assets/hand.webp" alt="" class="hero-layer hero-hand" draggable="false" aria-hidden="true">
+
+    <!-- LAYER 2: Dish plates (IN FRONT of hand, BEHIND text) z-index:2 -->
+    <div class="hero-layer hero-dish-stage" id="heroStage">
+      <div class="dish-track" id="dishTrack">
+        <div class="dish-slide active" data-index="0">
+          <img src="assets/dish-salmon-pasta.webp" alt="Grilled Salmon Pasta" class="dish-img" draggable="false">
+        </div>
+        <div class="dish-slide" data-index="1">
+          <img src="assets/dish-cheesesteak.webp" alt="Philly Cheesesteak with fries" class="dish-img" draggable="false">
+        </div>
+      </div>
     </div>
+
+    <!-- LAYER 3: Steam particles z-index:3 -->
+    <canvas id="steamCanvas" class="hero-layer steam-canvas"></canvas>
+
+    <!-- LAYER 4: Yellow text image (ON TOP of everything) z-index:4 -->
+    <img src="assets/hero-text.png" alt="Golden Outside — Kicking off with the Juiciest Insides!" class="hero-layer hero-text-img">
+
+    <!-- Bottom fade -->
     <div class="hero-overlay"></div>
+
+    <!-- Bottom CTA -->
     <div class="hero-content">
       <h1 class="sr-only">Macarena's Kitchen — Latin & American Fusion Restaurant in Cape Coral, FL</h1>
       <a href="order.html" class="btn btn-primary btn-lg">ORDER NOW</a>
       <a href="tel:+12393990995" class="hero-phone">239-399-0995</a>
+    </div>
+
+    <!-- Nav dots -->
+    <div class="dish-nav" id="dishNav">
+      <button class="dish-dot active" data-index="0" aria-label="Salmon Pasta"></button>
+      <button class="dish-dot" data-index="1" aria-label="Philly Cheesesteak"></button>
     </div>
   </section>
 
@@ -116,7 +145,7 @@
         </div>
         <div class="about-text">
           <h2 class="section-title">ABOUT US</h2>
-          <p>Welcome to <strong>Macarena's Kitchen</strong> — Cape Coral's spot for fresh Latin & American fusion. From our signature Philly Cheesesteaks to homemade pasta, fresh Saturday breakfast, and everything in between — every dish is crafted with fresh ingredients and love.</p>
+          <p>Welcome to <strong>Macarena's Kitchen</strong> — Cape Coral's spot for making sure flavors around the world American fusion is done right! From our signature Philly Cheesesteaks to homemade pasta, fresh Saturday breakfast, and everything in between — every dish is crafted with fresh ingredients and love.</p>
           <p>Proudly located inside the <strong>Fraternal Order of Eagles #3957</strong> in Cape Coral, FL. Dine in, pick up, or order delivery.</p>
           <a href="https://www.eaglescc3957.com/" target="_blank" rel="noopener" class="btn btn-secondary">EAGLES CLUB WEBSITE</a>
         </div>

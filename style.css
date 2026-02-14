@@ -213,58 +213,179 @@ img { max-width: 100%; height: auto; }
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
+  background: #1a0505;
+  cursor: pointer;
 }
 
-.hero-bg {
+/* All hero layers are absolutely positioned */
+.hero-layer {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: url('assets/background.png') center/cover no-repeat;
+  pointer-events: none;
 }
 
-.hero-svg {
+/* LAYER 0: Red textured background — fills entire hero */
+.hero-bg-img {
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
-.hero-svg-mobile { display: none; }
+/* LAYER 1: Hand — bottom-center-right, behind plate, holding it up */
+.hero-hand {
+  bottom: -8%;
+  right: 8%;
+  width: 78%;
+  max-width: 1320px;
+  z-index: 1;
+  filter: drop-shadow(0 8px 25px rgba(0,0,0,0.4));
+}
 
-.hero-overlay {
+/* LAYER 2: Dish stage — full hero area, dishes positioned right side */
+.hero-dish-stage {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dish-track {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 40%, transparent 70%);
-  z-index: 1;
+  overflow: hidden;
 }
 
+.dish-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Position plate over the hand area (right-center) */
+  padding-left: 38%;
+  will-change: transform, opacity;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  /* Default: waiting off-screen right */
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.dish-slide.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.dish-slide.exit-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.dish-img {
+  width: 132%;
+  max-width: 1560px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5));
+  margin-top: -65%;
+}
+
+.dish-slide[data-index="1"] .dish-img {
+  width: 145%;
+  max-width: 1700px;
+}
+
+/* LAYER 3: Steam canvas */
+.steam-canvas {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+/* LAYER 4: Yellow text image — left side, vertically centered */
+.hero-text-img {
+  left: 8%;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 48%;
+  max-width: 750px;
+  z-index: 4;
+  filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.5));
+}
+
+/* Bottom gradient fade */
+.hero-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 50%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* CTA — positioned under the yellow text */
 .hero-content {
   position: absolute;
-  z-index: 2;
-  left: 23%;
-  bottom: 12%;
-  transform: translateX(-50%);
+  z-index: 6;
+  left: 8%;
+  top: 62%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  width: 48%;
+  max-width: 750px;
+  gap: 14px;
 }
 
 .hero-phone {
   font-family: var(--font-head);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 3px;
   transition: opacity var(--transition);
+  opacity: 0.85;
 }
 
 .hero-phone:hover { opacity: 0.7; }
+
+/* Nav dots */
+.dish-nav {
+  position: absolute;
+  bottom: 8%;
+  right: 22%;
+  z-index: 6;
+  display: flex;
+  gap: 10px;
+}
+
+.dish-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition);
+  pointer-events: auto;
+}
+
+.dish-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+.dish-dot:hover {
+  background: var(--gold-dim);
+}
 
 
 /* ===== SECTIONS ===== */
@@ -699,11 +820,50 @@ img { max-width: 100%; height: auto; }
   .menu-tab { min-height: 44px; }
   .square-order-container iframe { height: 1200px; }
 
-  /* Mobile hero: swap SVGs */
-  .hero-svg-desktop { display: none; }
-  .hero-svg-mobile { display: block; object-fit: contain; object-position: center top; }
-  .hero-content { left: 50%; bottom: 6%; }
-  .hero-overlay { background: linear-gradient(to top, var(--black) 0%, var(--black) 5%, rgba(10,10,10,0.9) 12%, rgba(10,10,10,0.2) 30%, transparent 50%); }
+  /* Mobile hero */
+  .hero { height: 100vh; min-height: 600px; }
+
+  /* Text — top center */
+  .hero-text-img {
+    left: 50%;
+    top: 18%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: none;
+  }
+
+  /* Order button & phone — centered under text */
+  .hero-content {
+    left: 50%;
+    top: 42%;
+    transform: translateX(-50%);
+    width: 85%;
+    align-items: center;
+  }
+
+  /* Hand — centered, contained on screen */
+  .hero-hand {
+    right: 5%;
+    width: 90%;
+    max-width: none;
+    bottom: 0%;
+  }
+
+  /* Plate — centered, contained on screen */
+  .dish-img {
+    width: 110%;
+    max-width: none;
+    margin-top: 10%;
+  }
+  .dish-slide { padding-left: 5%; }
+
+  .dish-slide[data-index="1"] .dish-img {
+    width: 120%;
+    max-width: none;
+  }
+
+  .hero-overlay { height: 35%; }
+  .dish-nav { right: 40%; bottom: 3%; }
 }
 
 @media (max-width: 500px) {
