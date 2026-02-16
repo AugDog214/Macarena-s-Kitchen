@@ -1,3 +1,12 @@
+/* ===== CUSTOM FONTS ===== */
+@font-face {
+  font-family: 'Gloucester MT Extra Condensed';
+  src: url('assets/fonts/gloucester-mt-extra-condensed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== VARIABLES ===== */
 :root {
   --black: #0a0a0a;
@@ -409,7 +418,7 @@ img { max-width: 100%; height: auto; }
 .section-dark { background: var(--dark); }
 
 .section-title {
-  font-family: var(--font-head);
+  font-family: 'Gloucester MT Extra Condensed', var(--font-head);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   letter-spacing: 4px;
@@ -571,6 +580,96 @@ img { max-width: 100%; height: auto; }
   letter-spacing: 1px;
   vertical-align: middle;
   margin-left: 6px;
+}
+
+/* ===== CATERING & EVENTS ===== */
+.catering-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.catering-card {
+  background: var(--dark2);
+  border: 1px solid #333;
+  padding: 40px 32px;
+}
+
+.catering-card h3 {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.catering-card p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.catering-list {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.catering-list li {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  padding: 6px 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.catering-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.catering-form-section {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.catering-form-title {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.catering-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--dark2);
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.catering-form-container iframe {
+  width: 100%;
+  min-height: 800px;
+  border: none;
+}
+
+.catering-phone {
+  margin-top: 24px;
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+.catering-phone a {
+  color: var(--gold);
+  font-weight: 600;
 }
 
 /* ===== ORDER ===== */
@@ -824,6 +923,7 @@ img { max-width: 100%; height: auto; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .menu-list-compact { columns: 1; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
+  .catering-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {

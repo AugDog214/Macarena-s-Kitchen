@@ -10,14 +10,14 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://macarenaskitchen.com/">
   <meta property="og:title" content="Macarena's Kitchen | Cape Coral Restaurant">
-  <meta property="og:description" content="Fresh Latin & American fusion cuisine in Cape Coral, FL. Breakfast Saturdays 9-3PM. Lunch & Dinner daily. Order delivery on DoorDash & Grubhub!">
+  <meta property="og:description" content="Fresh Latin & American fusion cuisine in Cape Coral, FL. Breakfast Saturdays 9AM-12:30PM. Lunch & Dinner daily. Order delivery on DoorDash & Grubhub!">
   <meta property="og:type" content="restaurant">
   <meta property="og:url" content="https://macarenaskitchen.com/">
   <meta property="og:image" content="https://macarenaskitchen.com/assets/logo.png">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Macarena's Kitchen | Cape Coral Restaurant">
-  <meta name="twitter:description" content="Fresh Latin & American fusion cuisine in Cape Coral, FL. Breakfast Saturdays 9-3PM. Lunch & Dinner daily. Order delivery on DoorDash & Grubhub!">
+  <meta name="twitter:description" content="Fresh Latin & American fusion cuisine in Cape Coral, FL. Breakfast Saturdays 9AM-12:30PM. Lunch & Dinner daily. Order delivery on DoorDash & Grubhub!">
   <meta name="twitter:image" content="https://macarenaskitchen.com/assets/logo.png">
   <meta name="geo.region" content="US-FL">
   <meta name="geo.placename" content="Cape Coral">
@@ -50,7 +50,7 @@
     "logo": "https://macarenaskitchen.com/assets/logo.png",
     "url": "https://macarenaskitchen.com",
     "telephone": "+1-239-399-0995",
-    "email": "",
+    "email": "macarenaskitchen@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4647 SE 9th Pl",
@@ -72,7 +72,8 @@
     },
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "20:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "15:00", "closes": "20:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:00" }
     ],
     "sameAs": ["https://www.instagram.com/macarenaskitchen"],
@@ -86,85 +87,477 @@
       "deliveryMethod": ["http://purl.org/goodrelations/v1#DeliveryModePickUp","http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"]
     },
     "hasMenu": {
-      "@type": "Menu",
-      "name": "Macarena's Kitchen Menu",
-      "hasMenuSection": [
-        {
-          "@type": "MenuSection",
-          "name": "Appetizers",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"Mozzarella Sticks","description":"Four pieces of crispy mozzarella served with marinara.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Boom Boom Shrimp","description":"Crispy shrimp tossed in a sweet and spicy sauce.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Coconut Shrimp","description":"Golden fried coconut shrimp with dipping sauce.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Chicken Wings (12pc)","description":"Your choice of sauce or naked with celery.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Chicken Fingers","description":"Four hand-breaded chicken tenders, fried golden served with fries.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Fried Calamari","description":"Lightly breaded calamari, fried until tender with marinara.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Potato Skins","description":"Crispy potato skins topped with cheese and bacon.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Eggplant Stack","description":"Breaded eggplant layered with sauce and cheese.","offers":{"@type":"Offer","price":"12.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Onion Rings","description":"Beer-battered onion rings, served crispy and golden.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Fried Shrimp Basket","description":"Breaded shrimp served with fries and cilantro sauce.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Italian Meatballs","description":"Italian-style meatballs in marinara sauce.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}}
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Salads & Soup",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"Caesar Salad","description":"Romaine, parmesan, croutons, Caesar dressing.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}}
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Sandwiches & Burgers",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"100% Angus Burger","description":"Juicy Angus beef on a toasted bun with lettuce, tomato, onions. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Grilled Chicken Sandwich","description":"Grilled chicken breast on toasted bun with lettuce, tomato, pickles. Served with fries.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Club Sandwich","description":"Turkey, ham, bacon on toasted bun with lettuce, tomato, mayo. Served with fries.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Fried Flounder Sandwich","description":"Crispy fried flounder with tartar sauce and lemon on toasted bun. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Philly Cheesesteak","description":"Sliced steak, caramelized onions, peppers, mushrooms, melted cheese on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Grilled Cheese","description":"Melted cheese on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Hot Dog","description":"Classic hot dog with caramelized onions, sauerkraut, mustard. Served with fries.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Reuben","description":"Corned beef, sauerkraut, Swiss, thousand island on toasted bread. Served with fries.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}}
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Pasta",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"Fettuccine Alfredo","description":"Fettuccine in creamy Alfredo sauce.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Rigatoni a la Vodka","description":"Rigatoni in creamy tomato vodka sauce.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Lasagna","description":"Layers of pasta, meat, sauce, mozzarella and ricotta.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Pesto Pasta","description":"Choice of pasta in fresh basil pesto sauce.","offers":{"@type":"Offer","price":"16.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Stuffed Shells","description":"Shells stuffed with ricotta, topped with marinara, vodka or alfredo.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Chicken Marsala","description":"Chicken breast with mushrooms in Marsala wine sauce, potatoes and veggies.","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Chicken Parmesan","description":"Breaded chicken with pasta, choice of sauce, mozzarella and parmesan.","offers":{"@type":"Offer","price":"19.99","priceCurrency":"USD"}}
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Breakfast (Saturdays 9AM-3PM)",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"Macarena's Breakfast Platter","description":"Two eggs your way, breakfast potatoes, toast, bacon.","offers":{"@type":"Offer","price":"14.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Breakfast Sandwich","description":"Two fried eggs with melted cheese on toast.","offers":{"@type":"Offer","price":"8.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Buttermilk Pancakes","description":"Three fluffy pancakes with butter and syrup.","offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Belgian Waffles","description":"Two golden waffles with butter and syrup.","offers":{"@type":"Offer","price":"6.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"French Toast","description":"Cinnamon battered bread grilled golden, powdered sugar.","offers":{"@type":"Offer","price":"7.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Country Omelet","description":"Three-egg omelet with peppers, onions, cheese. Breakfast potatoes.","offers":{"@type":"Offer","price":"5.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Avocado Toast","description":"Smashed avocado on toasted bread with pepper flakes or sesame.","offers":{"@type":"Offer","price":"10.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Steak & Eggs","description":"Juicy steak with two eggs and breakfast potatoes.","offers":{"@type":"Offer","price":"15.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Chilaquiles Brunch Plate","description":"Tortilla chips in red or green sauce, fried eggs, cream, queso fresco.","offers":{"@type":"Offer","price":"13.99","priceCurrency":"USD"}},
-            {"@type":"MenuItem","name":"Triple Hit — Los Tres Golpes","description":"Mashed plantains (mangu) with fried salami, two eggs, fried cheese.","offers":{"@type":"Offer","price":"11.99","priceCurrency":"USD"}}
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Desserts",
-          "hasMenuItem": [
-            {"@type":"MenuItem","name":"Dessert of the Day","description":"Ask about our freshly made dessert of the day."}
-          ]
-        }
-      ]
-    }
+            "@type": "Menu",
+            "name": "Macarena's Kitchen Menu",
+            "hasMenuSection": [
+                  {
+                        "@type": "MenuSection",
+                        "name": "Appetizers",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Mozzarella Sticks",
+                                    "description": "Crispy mozzarella served with marinara sauce.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Boom Boom Shrimp",
+                                    "description": "Crispy shrimp tossed in a sweet and spicy sauce.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Coconut Shrimp",
+                                    "description": "Golden fried coconut shrimp with choice of dipping sauce.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "17.24",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chicken Wings",
+                                    "description": "Twelve crispy wings in your choice of sauce or naked with celery.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chicken Fingers",
+                                    "description": "Hand-breaded chicken tenders, fried golden served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "14.94",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Fried Calamari",
+                                    "description": "Lightly breaded calamari, fried until tender with marinara.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "16.09",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Potato Skins",
+                                    "description": "Crispy potato skins topped with cheese, bacon and sour cream.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Eggplant Stack",
+                                    "description": "Breaded eggplant layered with sauce and cheese.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "13.79",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Italian Sausage & Peppers",
+                                    "description": "Juicy Italian sausage with peppers.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "9.19",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Onion Rings",
+                                    "description": "Beer-battered onion rings, served crispy and golden.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Fried Shrimp Basket",
+                                    "description": "Breaded shrimp served with fries and choice of sauce.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "17.24",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Italian Meatballs",
+                                    "description": "Italian-style meatballs with marinara sauce and Ricotta Cheese.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chilli Bowl",
+                                    "description": "Slow-simmered ground beef with bold spices, topped with cheddar and sour cream.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "9.19",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Tomato Soup",
+                                    "description": "Tomato soup served with a mini grilled cheese for dipping.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "12.64",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Nachos",
+                                    "description": "Tortilla chips topped with house melted cheese, Pico de Gallo and jalapeno peppers.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "MenuSection",
+                        "name": "Salads & Soup",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Caesar Salad",
+                                    "description": "Romaine, Parmesan, croutons, Caesar dressing.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "10.34",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Caesar Salad with Chicken",
+                                    "description": "Romaine, grilled chicken, Parmesan, croutons, Caesar dressing.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "13.79",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "MenuSection",
+                        "name": "Sandwiches & Burgers",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "100% Angus Burger",
+                                    "description": "Juicy Angus beef burger on a toasted bun with lettuce, tomato, onion. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Grilled Chicken Pesto",
+                                    "description": "Grilled chicken breast with lettuce, tomato and Pesto sauce. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "16.09",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Grilled Chicken Sandwich",
+                                    "description": "Grilled chicken breast with lettuce, tomato. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "14.94",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Club Sandwich",
+                                    "description": "Turkey, ham, bacon with lettuce, tomato, mayo. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Fried Flounder Sandwich",
+                                    "description": "Crispy fried flounder with tartar sauce and lemon. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Philly Cheesesteak",
+                                    "description": "Sliced steak, caramelized onions, peppers, mushrooms, melted cheese. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "19.54",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Grilled Cheese",
+                                    "description": "Melted cheese on toasted bread. American or Swiss. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Hot Dog",
+                                    "description": "Classic hot dog with caramelized onions, sauerkraut, mustard. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "11.49",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Reuben",
+                                    "description": "Corned beef, sauerkraut, Swiss, thousand island on toasted bread. Served with fries.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "MenuSection",
+                        "name": "Pasta Dishes",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chicken Fettuccine Alfredo",
+                                    "description": "Chicken Fettuccine in creamy Alfredo sauce. Choice of pasta.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Shrimp Rigatoni a la Vodka",
+                                    "description": "Rigatoni in creamy tomato Vodka sauce with shrimp.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "20.69",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Lasagna",
+                                    "description": "Layers of Lasagna pasta, ground beef, Mozzarella and Bechamel sauce.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "17.24",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chicken Marsala",
+                                    "description": "Chicken breast with mushrooms in Marsala wine sauce, potatoes and veggies.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "22.99",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Chicken Parmesan",
+                                    "description": "Breaded chicken with pasta, choice of sauce, Mozzarella and Parmesan.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "21.84",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Eggplant Parmesan",
+                                    "description": "Breaded eggplant with pasta, choice of sauce, Mozzarella and Parmesan.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "MenuSection",
+                        "name": "Breakfast (Saturdays 9AM-12:30PM)",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Macarena's Breakfast Platter",
+                                    "description": "Two eggs, breakfast potatoes, toast, bacon.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "17.24",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Breakfast Sandwich",
+                                    "description": "Two fried eggs with melted cheese on toast.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "10.34",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Buttermilk Pancakes",
+                                    "description": "Three fluffy pancakes with butter and syrup.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "5.74",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Belgian Waffles",
+                                    "description": "Two golden waffles with butter and syrup.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "8.04",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "French Toast",
+                                    "description": "Thick-cut bread in cinnamon batter, grilled golden with powdered sugar.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "9.19",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Country Omelet",
+                                    "description": "Three-egg omelet with peppers, onions, cheese. Breakfast potatoes.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "8.04",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Steak & Eggs",
+                                    "description": "Juicy steak with two eggs and breakfast potatoes.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "18.39",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Cinnamon Roll",
+                                    "description": "Warm cinnamon roll drizzled with sweet icing.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "5.74",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Tamal with Bacon & Eggs",
+                                    "description": "Traditional tamal (chicken or pork) with fried egg and bacon.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "12.64",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "MenuSection",
+                        "name": "Desserts",
+                        "hasMenuItem": [
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "Rainbow Cake",
+                                    "description": "With choice of decorative drizzle.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "9.19",
+                                          "priceCurrency": "USD"
+                                    }
+                              },
+                              {
+                                    "@type": "MenuItem",
+                                    "name": "New York Cheesecake",
+                                    "description": "With choice of decorative drizzle.",
+                                    "offers": {
+                                          "@type": "Offer",
+                                          "price": "9.19",
+                                          "priceCurrency": "USD"
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
   }
   </script>
   <script type="application/ld+json">
@@ -193,7 +586,7 @@
         "name": "What are Macarena's Kitchen hours?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Monday through Friday 11AM to 8PM, Saturday 9AM to 8PM (breakfast served 9AM-3PM), and Sunday 12PM to 7PM."
+          "text": "Monday through Friday 11AM to 8PM. Saturday: Breakfast/Brunch 9AM-12:30PM, closed 12:30-3PM, reopens 3-8PM. Sunday 12PM to 7PM."
         }
       },
       {
@@ -209,7 +602,15 @@
         "name": "Does Macarena's Kitchen serve breakfast?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, breakfast is served every Saturday from 9AM to 3PM. The menu includes pancakes, waffles, omelets, steak and eggs, chilaquiles, and more."
+          "text": "Yes! Breakfast and brunch are served every Saturday from 9AM to 12:30PM. The menu includes pancakes, waffles, omelets, steak and eggs, French toast, cinnamon rolls, and more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Macarena's Kitchen offer catering or private events?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! We offer full-service and drop-off catering for events of all sizes, plus private dining for up to 50 guests at the Eagles Club. Call 239-399-0995 or fill out our inquiry form to get started."
         }
       }
     ]
@@ -330,24 +731,29 @@
       <!-- APPETIZERS -->
       <div class="menu-panel active" id="panel-appetizers" role="tabpanel" aria-labelledby="tab-appetizers">
         <div class="menu-list">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Mozzarella Sticks</span><span class="menu-dots"></span><span class="menu-price">$9.99</span></div><p>Four pieces of crispy mozzarella served with marinara.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Boom Boom Shrimp</span><span class="menu-dots"></span><span class="menu-price">$9.99</span></div><p>Crispy shrimp tossed in a sweet and spicy sauce.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Coconut Shrimp</span><span class="menu-dots"></span><span class="menu-price">$14.99</span></div><p>Golden fried coconut shrimp with dipping sauce.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Wings (12pc)</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Your choice of sauce or naked with celery. Mango Habanero, Garlic Parm, Buffalo, BBQ, Ranch, Blue Cheese.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Fingers</span><span class="menu-dots"></span><span class="menu-price">$13.99</span></div><p>Four hand-breaded chicken tenders, fried golden served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Calamari</span><span class="menu-dots"></span><span class="menu-price">$13.99</span></div><p>Lightly breaded calamari, fried until tender with marinara.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Potato Skins</span><span class="menu-dots"></span><span class="menu-price">$9.99</span></div><p>Crispy potato skins topped with cheese and bacon.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Eggplant Stack</span><span class="menu-dots"></span><span class="menu-price">$12.99</span></div><p>Breaded eggplant layered with sauce and cheese.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Onion Rings</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Beer-battered onion rings, served crispy and golden.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Shrimp Basket</span><span class="menu-dots"></span><span class="menu-price">$14.99</span></div><p>Breaded shrimp served with fries and cilantro sauce.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Italian Meatballs</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Italian-style meatballs in marinara sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Mozzarella Sticks</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Crispy mozzarella served with marinara sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Boom Boom Shrimp</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Crispy shrimp tossed in a sweet and spicy sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Coconut Shrimp</span><span class="menu-dots"></span><span class="menu-price">$17.24</span></div><p>Golden fried coconut shrimp with choice of dipping sauce: Sweet chili or Mango Habanero.</p></div>
+          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">Chicken Wings</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Twelve crispy wings tossed in your choice of sauce or naked with celery. Mango Habanero, Garlic Parmesan, Buffalo, BBQ, Ranch or Blue Cheese.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Fingers</span><span class="menu-dots"></span><span class="menu-price">$14.94</span></div><p>Hand-breaded chicken tenders, fried golden served with fries.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Calamari</span><span class="menu-dots"></span><span class="menu-price">$16.09</span></div><p>Lightly breaded calamari, fried until tender served with marinara sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Potato Skins</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Crispy potato skins topped with cheese, bacon &amp; side of sour cream.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Eggplant Stack</span><span class="menu-dots"></span><span class="menu-price">$13.79</span></div><p>Breaded eggplant layered with sauce and cheese.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Italian Sausage &amp; Peppers</span><span class="menu-dots"></span><span class="menu-price">$9.19</span></div><p>Juicy Italian sausage with peppers.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Onion Rings</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Beer-battered onion rings, served crispy and golden.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Shrimp Basket</span><span class="menu-dots"></span><span class="menu-price">$17.24</span></div><p>Breaded shrimp served with fries and choice of sauce: sweet chili, mango habanero or marinara.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Italian Meatballs</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Italian-style meatballs with marinara sauce and Ricotta Cheese sprinkle.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chilli Bowl</span><span class="menu-dots"></span><span class="menu-price">$9.19</span></div><p>Slow-simmered ground beef with bold spices and a touch of heat. Topped with cheddar and sour cream.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Tomato Soup</span><span class="menu-dots"></span><span class="menu-price">$12.64</span></div><p>Tomato soup served with a mini grilled cheese for dipping.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Nachos</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Tortilla chips topped with house melted cheese mix, Pico de Gallo salsa and jalapeño peppers.</p></div>
         </div>
       </div>
 
       <!-- SALADS -->
       <div class="menu-panel" id="panel-salads" role="tabpanel" aria-labelledby="tab-salads">
         <div class="menu-list">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Caesar Salad</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Romaine, parmesan, croutons, Caesar dressing.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Caesar Salad</span><span class="menu-dots"></span><span class="menu-price">$10.34</span></div><p>Fresh Romaine lettuce topped with Parmesan, croutons tossed in Caesar dressing.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Caesar Salad with Chicken</span><span class="menu-dots"></span><span class="menu-price">$13.79</span></div><p>Fresh Romaine lettuce topped with grilled chicken, Parmesan, croutons tossed in Caesar dressing.</p></div>
           <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Soup of the Day</span><span class="menu-dots"></span><span class="menu-price">Ask</span></div><p>Ask about our freshly made soup of the day.</p></div>
         </div>
       </div>
@@ -355,85 +761,76 @@
       <!-- SANDWICHES -->
       <div class="menu-panel" id="panel-sandwiches" role="tabpanel" aria-labelledby="tab-sandwiches">
         <div class="menu-list">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">100% Angus Burger</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Juicy Angus beef on a toasted bun with lettuce, tomato, onions. Served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Chicken Sandwich</span><span class="menu-dots"></span><span class="menu-price">$13.99</span></div><p>Grilled chicken breast on toasted bun with lettuce, tomato, pickles. Served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Club Sandwich</span><span class="menu-dots"></span><span class="menu-price">$16.99</span></div><p>Turkey, ham, bacon on toasted bun with lettuce, tomato, mayo. Served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Flounder Sandwich</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Crispy fried flounder with tartar sauce and lemon on toasted bun. Served with fries.</p></div>
-          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">Philly Cheesesteak</span><span class="menu-dots"></span><span class="menu-price">$16.99</span></div><p>Sliced steak, caramelized onions, peppers, mushrooms, melted cheese on toasted bread. Served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Cheese</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Melted cheese on toasted bread. American or Swiss. Served with fries. Add ham $3.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Hot Dog</span><span class="menu-dots"></span><span class="menu-price">$9.99</span></div><p>Classic hot dog with caramelized onions, sauerkraut, mustard. Served with fries.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Reuben</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Corned beef, sauerkraut, Swiss, thousand island on toasted bread. Served with fries.</p></div>
+          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">100% Angus Burger</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Juicy Angus beef burger on a toasted bun with fresh lettuce, tomato &amp; onion served with fries. Cheese optional: Swiss, American or Provolone.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Chicken Pesto</span><span class="menu-dots"></span><span class="menu-price">$16.09</span></div><p>Grilled chicken breast on a toasted bun with lettuce &amp; tomato and Pesto sauce served with fries.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Chicken Sandwich</span><span class="menu-dots"></span><span class="menu-price">$14.94</span></div><p>Grilled chicken breast on a toasted bun with fresh lettuce &amp; tomato served with fries. Pickles optional.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Club Sandwich</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Freshly sliced turkey, ham, bacon on a toasted bun with lettuce, tomato, mayo &amp; served with fries. Cheese optional.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fried Flounder Sandwich</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Crispy fried flounder with tartar sauce and lemon on a toasted bun served with fries.</p></div>
+          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">Philly Cheesesteak</span><span class="menu-dots"></span><span class="menu-price">$19.54</span></div><p>Sliced steak, caramelized onions, peppers, mushrooms and melted choice of cheese on toasted bread: American or Swiss served with fries.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Cheese</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Melted choice cheese on toasted slice bread: American or Swiss served with fries. Optional add-on: Black Forest ham for $3.45.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Hot Dog</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Classic hot dog with caramelized onions, sauerkraut and mustard served with fries.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Reuben</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Corned beef, sauerkraut, Swiss, and thousand island dressing on toasted slice bread served with fries.</p></div>
         </div>
       </div>
 
       <!-- PASTA -->
       <div class="menu-panel" id="panel-pasta" role="tabpanel" aria-labelledby="tab-pasta">
         <div class="menu-list">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fettuccine Alfredo</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Fettuccine in creamy Alfredo sauce. Choice of pasta.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Rigatoni a la Vodka</span><span class="menu-dots"></span><span class="menu-price">$16.99</span></div><p>Rigatoni in creamy tomato vodka sauce.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Lasagna</span><span class="menu-dots"></span><span class="menu-price">$16.99</span></div><p>Layers of pasta, meat, sauce, mozzarella and ricotta.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Pesto Pasta</span><span class="menu-dots"></span><span class="menu-price">$16.99</span></div><p>Choice of pasta in fresh basil pesto sauce.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Stuffed Shells</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Shells stuffed with ricotta, topped with marinara, vodka or alfredo.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Marsala</span><span class="menu-dots"></span><span class="menu-price">$19.99</span></div><p>Chicken breast with mushrooms in Marsala wine sauce, potatoes and veggies.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Parmesan</span><span class="menu-dots"></span><span class="menu-price">$19.99</span></div><p>Breaded chicken with pasta, choice of sauce, mozzarella and parmesan.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Fettuccine Alfredo</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Chicken Fettuccine tossed in creamy Alfredo sauce. Choice of pasta: Fettuccine, angel hair or Spaghetti. Option to replace chicken with shrimp for $1.15 more.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Shrimp Rigatoni a la Vodka</span><span class="menu-dots"></span><span class="menu-price">$20.69</span></div><p>Rigatoni in a home-made creamy tomato Vodka sauce served with shrimp. Choice of pasta: Rigatoni or Penne. Option to replace shrimp with chicken for $1.15 less.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Lasagna</span><span class="menu-dots"></span><span class="menu-price">$17.24</span></div><p>Layers of Lasagna pasta, ground beef, Mozzarella and Bechamel sauce.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Marsala</span><span class="menu-dots"></span><span class="menu-price">$22.99</span></div><p>Chicken breast sauteed with mushrooms in Marsala wine sauce served with potatoes and veggies.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chicken Parmesan</span><span class="menu-dots"></span><span class="menu-price">$21.84</span></div><p>Breaded chicken served with option of Rigatoni, Penne, Fettuccine or Spaghetti topped with Marinara, Vodka or Alfredo sauces with Mozzarella and Parmesan.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Eggplant Parmesan</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Breaded eggplant served with option of Rigatoni, Penne, Fettuccine or Spaghetti topped with Marinara, Vodka or Alfredo sauces with Mozzarella and Parmesan.</p></div>
         </div>
       </div>
 
       <!-- BREAKFAST -->
       <div class="menu-panel" id="panel-breakfast" role="tabpanel" aria-labelledby="tab-breakfast">
-        <p class="menu-note">SATURDAYS 9AM - 3PM</p>
+        <p class="menu-note">SATURDAYS 9AM - 12:30PM</p>
         <div class="menu-list">
-          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">Macarena's Breakfast Platter</span><span class="menu-dots"></span><span class="menu-price">$14.99</span></div><p>Two eggs your way, breakfast potatoes, toast, bacon.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Breakfast Sandwich</span><span class="menu-dots"></span><span class="menu-price">$8.99</span></div><p>Two fried eggs with melted cheese on toast.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Buttermilk Pancakes</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div><p>Three fluffy pancakes with butter and syrup.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Belgian Waffles</span><span class="menu-dots"></span><span class="menu-price">$6.99</span></div><p>Two golden waffles with butter and syrup.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">French Toast</span><span class="menu-dots"></span><span class="menu-price">$7.99</span></div><p>Cinnamon battered bread grilled golden, powdered sugar.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Country Omelet</span><span class="menu-dots"></span><span class="menu-price">$5.99</span></div><p>Three-egg omelet with peppers, onions, cheese. Breakfast potatoes.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Avocado Toast</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Smashed avocado on toasted bread with pepper flakes or sesame.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Steak & Eggs</span><span class="menu-dots"></span><span class="menu-price">$15.99</span></div><p>Juicy steak with two eggs and breakfast potatoes.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Cinnamon Roll</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div><p>Warm cinnamon roll with sweet icing.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Chilaquiles Brunch Plate</span><span class="menu-dots"></span><span class="menu-price">$13.99</span></div><p>Tortilla chips in red or green sauce, fried eggs, cream, queso fresco.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Tamal with Bacon & Eggs</span><span class="menu-dots"></span><span class="menu-price">$10.99</span></div><p>Traditional tamal (chicken or pork) with fried egg and bacon.</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Triple Hit — "Los Tres Golpes"</span><span class="menu-dots"></span><span class="menu-price">$11.99</span></div><p>Mashed plantains (mangu) with fried salami, two eggs, fried cheese.</p></div>
+          <div class="menu-item featured"><div class="menu-item-top"><span class="menu-name">Macarena's Breakfast Platter</span><span class="menu-dots"></span><span class="menu-price">$17.24</span></div><p>Two eggs — choice of scrambled or fried, served with crispy golden breakfast potatoes and toast with bacon.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Breakfast Sandwich</span><span class="menu-dots"></span><span class="menu-price">$10.34</span></div><p>Two fried eggs with melted cheese on toast bread.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Buttermilk Pancakes</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Three light and fluffy pancakes served warm with butter and syrup.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Belgian Waffles</span><span class="menu-dots"></span><span class="menu-price">$8.04</span></div><p>Two golden, crisp waffles with a soft center, finished with butter and syrup.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">French Toast</span><span class="menu-dots"></span><span class="menu-price">$9.19</span></div><p>Two thick-cut bread slices dipped in cinnamon batter and grilled until golden, topped with powdered sugar.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Country Omelet</span><span class="menu-dots"></span><span class="menu-price">$8.04</span></div><p>Three-egg omelet filled with peppers, onions, and cheese, served with breakfast potatoes.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Steak &amp; Eggs</span><span class="menu-dots"></span><span class="menu-price">$18.39</span></div><p>Juicy steak paired with two eggs — choice of scrambled or fried with breakfast potatoes.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Cinnamon Roll</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Warm, soft cinnamon roll drizzled with sweet icing.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Tamal with Bacon &amp; Eggs</span><span class="menu-dots"></span><span class="menu-price">$12.64</span></div><p>Traditional tamal (choice of chicken or pork) served with one fried egg and slice of bacon.</p></div>
         </div>
       </div>
 
       <!-- SIDES -->
       <div class="menu-panel" id="panel-sides" role="tabpanel" aria-labelledby="tab-sides">
         <div class="menu-list menu-list-compact">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Fries</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Veggies</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Cole Slaw</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Potato Salad</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Spinach</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Mashed Potatoes</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Broccoli</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Street Corn</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Roasted Potatoes</span><span class="menu-dots"></span><span class="menu-price">$4.99</span></div></div>
-        </div>
-        <h3 class="menu-sub-heading">ADD-ONS</h3>
-        <div class="menu-list menu-list-compact">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Shrimp</span><span class="menu-dots"></span><span class="menu-price">$7.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Chicken</span><span class="menu-dots"></span><span class="menu-price">$5.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Salmon</span><span class="menu-dots"></span><span class="menu-price">$9.99</span></div></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Order of Fries</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Crispy golden french fries.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Cole Slaw</span><span class="menu-dots"></span><span class="menu-price">$4.59</span></div><p>Crispy, house-made coleslaw.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Potato Salad</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Home-made classic potato salad with mayo and seasoning.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Spinach</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Sauteed spinach with garlic.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Roasted Potatoes</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Herb-roasted potatoes, crispy outside and tender inside.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Mashed Potatoes</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Creamy whipped mashed potatoes.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Broccoli</span><span class="menu-dots"></span><span class="menu-price">$5.74</span></div><p>Steamed broccoli with light seasoning.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Grilled Salmon (add-on)</span><span class="menu-dots"></span><span class="menu-price">$11.49</span></div><p>Blackened +$0.57.</p></div>
         </div>
         <h3 class="menu-sub-heading">BREAKFAST SIDES <span class="badge">SAT ONLY</span></h3>
         <div class="menu-list menu-list-compact">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Toast</span><span class="menu-dots"></span><span class="menu-price">$2.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">English Muffin</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Hash Brown</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Breakfast Potatoes</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Egg</span><span class="menu-dots"></span><span class="menu-price">$1.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Bacon</span><span class="menu-dots"></span><span class="menu-price">$2.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Ham</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Sausage Links/Patties</span><span class="menu-dots"></span><span class="menu-price">$3.99</span></div></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Toast</span><span class="menu-dots"></span><span class="menu-price">$3.44</span></div><p>Two pieces of toast — choice of white or rye.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">English Muffin</span><span class="menu-dots"></span><span class="menu-price">$3.44</span></div><p>Toasted muffin with butter.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Hash Brown</span><span class="menu-dots"></span><span class="menu-price">$4.59</span></div><p>Two toasted Hash Browns — golden crisp.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Breakfast Potatoes</span><span class="menu-dots"></span><span class="menu-price">$4.59</span></div><p>Golden crisp potatoes.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Egg</span><span class="menu-dots"></span><span class="menu-price">$2.88</span></div><p>Two eggs — choice of scrambled or fried.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Bacon</span><span class="menu-dots"></span><span class="menu-price">$3.44</span></div><p>Three slices of baked strips.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Ham</span><span class="menu-dots"></span><span class="menu-price">$3.45</span></div><p>Two slices of Forest baked ham.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Sausage Links/Patties</span><span class="menu-dots"></span><span class="menu-price">$4.59</span></div><p>Choice of two links or one patty.</p></div>
         </div>
       </div>
 
       <!-- DESSERTS -->
       <div class="menu-panel" id="panel-desserts" role="tabpanel" aria-labelledby="tab-desserts">
         <div class="menu-list">
-          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Dessert of the Day</span><span class="menu-dots"></span><span class="menu-price">Ask</span></div><p>Ask about our freshly made dessert of the day.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">Rainbow Cake</span><span class="menu-dots"></span><span class="menu-price">$9.19</span></div><p>Option of decorative drizzle: Kiwi Lime, Raspberry, Strawberry, Cinnamon, Chocolate, Blackberry, Caramel, White Chocolate, Mango.</p></div>
+          <div class="menu-item"><div class="menu-item-top"><span class="menu-name">New York Cheesecake</span><span class="menu-dots"></span><span class="menu-price">$9.19</span></div><p>Option of decorative drizzle: Kiwi Lime, Raspberry, Strawberry, Cinnamon, Chocolate, Blackberry, Caramel, White Chocolate, Mango.</p></div>
         </div>
       </div>
     </div>
@@ -446,8 +843,8 @@
       <p class="section-sub">Delivery straight to your door in Cape Coral</p>
       <div class="order-grid">
         <a href="order.html" class="order-card-featured">
-          <span class="order-badge">Direct — No Extra Fees</span>
-          <span class="order-name">Order from Us</span>
+          <span class="order-badge">Direct Pickup</span>
+          <span class="order-name">Order for Pickup</span>
           <span class="order-cta">Order Now</span>
         </a>
         <a href="https://www.doordash.com/store/macarena's-kitchen-cape-coral-39820491/93957162/" class="order-card" target="_blank" rel="noopener noreferrer">
@@ -470,6 +867,59 @@
     </div>
   </section>
 
+  <!-- CATERING & EVENTS -->
+  <section id="catering" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">CATERING & PRIVATE EVENTS</h2>
+      <p class="section-sub">Let Macarena's Kitchen bring the flavor to your next event in Cape Coral</p>
+      <div class="catering-grid">
+        <div class="catering-card">
+          <h3>CATERING</h3>
+          <p>From office lunches to family gatherings, we cater events of all sizes with our full menu of Latin and American fusion dishes. Custom menus available.</p>
+          <ul class="catering-list">
+            <li>Full-service and drop-off catering</li>
+            <li>Custom menus tailored to your event</li>
+            <li>Appetizer platters, entrees, sides, and desserts</li>
+            <li>Serving Cape Coral and surrounding areas</li>
+          </ul>
+          <a href="#catering-inquiry" class="btn btn-primary">REQUEST CATERING MENU</a>
+        </div>
+        <div class="catering-card">
+          <h3>PRIVATE EVENTS</h3>
+          <p>Host your next celebration at the Eagles Club! Our in-house space accommodates private parties and events with full kitchen service.</p>
+          <ul class="catering-list">
+            <li>Private dining for up to 50 guests</li>
+            <li>Birthday parties, anniversaries, corporate events</li>
+            <li>Custom menu packages available</li>
+            <li>Located at Eagles #3957 in Cape Coral</li>
+          </ul>
+          <a href="#catering-inquiry" class="btn btn-primary">INQUIRE ABOUT EVENTS</a>
+        </div>
+      </div>
+
+      <!-- GOOGLE FORM EMBED -->
+      <div id="catering-inquiry" class="catering-form-section">
+        <h3 class="catering-form-title">REQUEST INFO</h3>
+        <p class="section-sub">Fill out the form below and we'll get back to you within 24 hours</p>
+        <div class="catering-form-container">
+          <!-- REPLACE THE URL BELOW WITH YOUR GOOGLE FORM EMBED URL -->
+          <iframe
+            src="REPLACE_WITH_GOOGLE_FORM_EMBED_URL"
+            width="100%"
+            height="800"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Catering & Event Inquiry Form"
+            loading="lazy">
+            Loading form...
+          </iframe>
+        </div>
+        <p class="catering-phone">Or call us directly: <a href="tel:+12393990995">239-399-0995</a></p>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq" class="section">
     <div class="container">
@@ -481,7 +931,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">What are your hours?</button>
-          <div class="faq-answer"><p>Monday through Friday 11AM to 8PM, Saturday 9AM to 8PM (breakfast served 9AM-3PM), and Sunday 12PM to 7PM.</p></div>
+          <div class="faq-answer"><p>Monday through Friday 11AM to 8PM. Saturday: Breakfast/Brunch 9AM-12:30PM, closed 12:30-3PM, reopens 3-8PM. Sunday 12PM to 7PM.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">Does Macarena's Kitchen deliver in Cape Coral?</button>
@@ -489,7 +939,11 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">Do you serve breakfast?</button>
-          <div class="faq-answer"><p>Yes, breakfast is served every Saturday from 9AM to 3PM. The menu includes pancakes, waffles, omelets, steak and eggs, chilaquiles, avocado toast, and more.</p></div>
+          <div class="faq-answer"><p>Yes, breakfast and brunch are served every Saturday from 9AM to 12:30PM. The menu includes pancakes, waffles, omelets, steak and eggs, French toast, cinnamon rolls, and more.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Does Macarena's Kitchen offer catering or private events?</button>
+          <div class="faq-answer"><p>Yes! We offer full-service and drop-off catering for events of all sizes, plus private dining for up to 50 guests at the Eagles Club. Call 239-399-0995 or fill out our inquiry form to get started.</p></div>
         </div>
       </div>
     </div>
@@ -513,10 +967,10 @@
               <div class="hours-row" role="row"><span class="day" role="cell">Wednesday</span><span class="time" role="cell">11:00 AM – 8:00 PM</span></div>
               <div class="hours-row" role="row"><span class="day" role="cell">Thursday</span><span class="time" role="cell">11:00 AM – 8:00 PM</span></div>
               <div class="hours-row" role="row"><span class="day" role="cell">Friday</span><span class="time" role="cell">11:00 AM – 8:00 PM</span></div>
-              <div class="hours-row" role="row"><span class="day" role="cell">Saturday</span><span class="time" role="cell">9:00 AM – 8:00 PM</span></div>
+              <div class="hours-row" role="row"><span class="day" role="cell">Saturday</span><span class="time" role="cell">9:00 AM – 12:30 PM, 3:00 – 8:00 PM</span></div>
               <div class="hours-row" role="row"><span class="day" role="cell">Sunday</span><span class="time" role="cell">12:00 PM – 7:00 PM</span></div>
             </div>
-            <p class="hours-note">Saturday Breakfast: 9AM - 3PM</p>
+            <p class="hours-note">Saturday Breakfast/Brunch: 9AM - 12:30PM | Closed 12:30 - 3PM | Reopens 3PM</p>
           </div>
           <div class="info-block">
             <h3>CALL / TEXT</h3>
@@ -543,7 +997,7 @@
         <div class="footer-col">
           <h3>HOURS</h3>
           <p>Mon-Fri: 11AM - 8PM</p>
-          <p>Sat: 9AM - 8PM</p>
+          <p>Sat: 9AM-12:30PM, 3-8PM</p>
           <p>Sun: 12PM - 7PM</p>
         </div>
         <div class="footer-col">
