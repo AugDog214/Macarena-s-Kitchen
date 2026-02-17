@@ -743,13 +743,20 @@
   <section class="gallery-strip" aria-label="Photo gallery">
     <div class="gallery-scroll">
       <!-- ADD YOUR PHOTOS: food close-ups, family cooking, customers dining, the kitchen, plating -->
+      <!-- Replace placeholders with: <img src="assets/gallery/photo.webp" alt="Description" loading="lazy"> -->
       <div class="gallery-item"><div class="gallery-placeholder">Photo: Signature dish close-up</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Photo: Family in the kitchen</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Photo: Customers enjoying food</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Photo: Chef plating a dish</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Photo: The girls serving</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Photo: Full spread on a table</div></div>
-      <!-- Replace placeholders with: <img src="assets/gallery/photo.webp" alt="Description" loading="lazy"> -->
+      <!-- Duplicated for seamless scroll loop -->
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: Signature dish close-up</div></div>
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: Family in the kitchen</div></div>
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: Customers enjoying food</div></div>
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: Chef plating a dish</div></div>
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: The girls serving</div></div>
+      <div class="gallery-item" aria-hidden="true"><div class="gallery-placeholder">Photo: Full spread on a table</div></div>
     </div>
   </section>
 
@@ -909,7 +916,7 @@
           <!-- <video src="assets/videos/girls-serving.mp4" autoplay muted loop playsinline></video> -->
         </div>
       </div>
-      <a href="#menu" class="btn btn-primary btn-lg" onclick="document.querySelector('[data-tab=breakfast]').click()">VIEW BREAKFAST MENU</a>
+      <a href="#menu" class="btn btn-primary btn-lg" onclick="document.querySelector('[data-target=breakfast]').click()">VIEW BREAKFAST MENU</a>
     </div>
   </section>
 
@@ -1014,7 +1021,7 @@
           </ul>
         </div>
       </div>
-      <div class="catering-cta" style="text-align:center; margin-top:32px; margin-bottom:24px;">
+      <div class="catering-cta">
         <a href="https://macarenas.square.site/catering" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">REQUEST CATERING</a>
       </div>
       <div class="catering-contact">
