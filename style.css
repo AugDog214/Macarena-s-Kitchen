@@ -675,8 +675,11 @@ img { max-width: 100%; height: auto; }
 /* ===== ORDER ===== */
 .order-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 40px;
 }
 
@@ -803,6 +806,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .footer-phone { color: var(--gold); font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; }
+.footer-email { display: block; color: var(--gold); font-size: 0.85rem; margin-top: 8px; word-break: break-all; }
 
 .social-icons { display: flex; gap: 12px; margin-bottom: 16px; }
 
