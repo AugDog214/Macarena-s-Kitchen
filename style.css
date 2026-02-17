@@ -314,45 +314,6 @@ img { max-width: 100%; height: auto; }
   max-width: 1700px;
 }
 
-/* Dish name ring animation */
-.dish-name-ring {
-  position: absolute;
-  width: 62%;
-  aspect-ratio: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  pointer-events: none;
-  animation: spin-ring 20s linear infinite;
-}
-
-.dish-name-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.dish-name-text {
-  font-family: 'Gloucester MT Extra Condensed', var(--font-head);
-  font-size: 18px;
-  fill: var(--gold);
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
-.dish-slide.active .dish-name-ring {
-  opacity: 1;
-}
-
-.dish-slide:not(.active) .dish-name-ring {
-  opacity: 0;
-}
-
-@keyframes spin-ring {
-  from { transform: translate(-50%, -70%) rotate(0deg); }
-  to { transform: translate(-50%, -70%) rotate(360deg); }
-}
-
 /* LAYER 3: Steam canvas */
 .steam-canvas {
   inset: 0;

@@ -122,7 +122,6 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   let current = 0;
   let isAnimating = false;
   let autoTimer = null;
-
   // --- Advance to next dish ---
   function nextDish() {
     const next = (current + 1) % slides.length;
