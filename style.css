@@ -590,6 +590,37 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 48px;
 }
 
+.catering-single {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  background: var(--dark2);
+  border: 1px solid #333;
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.catering-single p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.catering-single .btn {
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.catering-contact {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
+.catering-contact a {
+  color: var(--gold);
+}
+
 .catering-card {
   background: var(--dark2);
   border: 1px solid #333;
@@ -928,6 +959,7 @@ img { max-width: 100%; height: auto; }
   .menu-list-compact { columns: 1; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
   .catering-grid { grid-template-columns: 1fr; }
+  .catering-single { padding: 36px 24px; }
 }
 
 @media (max-width: 768px) {
