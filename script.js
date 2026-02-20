@@ -412,53 +412,20 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   observer.observe(hero);
 })();
 
-// ===== ANIMATED STAT COUNTERS =====
+// ===== VIDEO PLAY/PAUSE ON VISIBILITY =====
 (function () {
-  const items = document.querySelectorAll('.stat-item');
-  if (!items.length) return;
+  const videos = document.querySelectorAll('.video-card video');
+  if (!videos.length) return;
 
-  let animated = false;
-
-  function animateCounters() {
-    if (animated) return;
-    animated = true;
-
-    items.forEach(item => {
-      const numEl = item.querySelector('.stat-number');
-      const target = parseFloat(item.dataset.target);
-      const suffix = item.dataset.suffix || '';
-      const isDecimal = item.dataset.decimal === 'true';
-      const duration = 1500;
-      const start = performance.now();
-
-      function step(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const current = ease * target;
-
-        if (isDecimal) {
-          numEl.textContent = current.toFixed(1) + suffix;
-        } else {
-          numEl.textContent = Math.floor(current) + suffix;
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      }
-
-      requestAnimationFrame(step);
-    });
-  }
-
-  const statsObserver = new IntersectionObserver((entries) => {
+  const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) animateCounters();
+      if (entry.isIntersecting) {
+        entry.target.play().catch(() => {});
+      } else {
+        entry.target.pause();
+      }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
 
-  const section = document.querySelector('.stats-section');
-  if (section) statsObserver.observe(section);
+  videos.forEach(v => videoObserver.observe(v));
 })();
