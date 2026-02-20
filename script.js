@@ -28,10 +28,12 @@
       tabs.forEach(t => {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
       });
       panels.forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
+      tab.setAttribute('tabindex', '0');
       const target = document.getElementById('panel-' + tab.getAttribute('data-target'));
       if (target) target.classList.add('active');
     });
@@ -254,6 +256,14 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   hero.addEventListener('mouseenter', () => clearInterval(autoTimer));
   hero.addEventListener('mouseleave', resetAutoplay);
 
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(autoTimer);
+    } else {
+      resetAutoplay();
+    }
+  });
+
   // --- STEAM PARTICLE SYSTEM ---
   let particles = [];
   let mouseX = -1000;
@@ -399,8 +409,10 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   }
 
   // Only animate when hero is visible
+  let heroVisible = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      heroVisible = entry.isIntersecting;
       if (entry.isIntersecting) {
         if (!rafId) { initParticles(); rafId = requestAnimationFrame(animateSteam); }
       } else {
@@ -410,12 +422,29 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   }, { threshold: 0.1 });
 
   observer.observe(hero);
+
+  // Stop RAF when page is hidden (tab switch / minimize) to prevent wasted CPU
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    } else {
+      if (heroVisible && !rafId) { rafId = requestAnimationFrame(animateSteam); }
+    }
+  });
 })();
 
 // ===== VIDEO PLAY/PAUSE ON VISIBILITY =====
+// NOTE: Carousel videos (.video-card video) are deliberately excluded here.
+// The conveyor belt scrolls cards in/out of view continuously, so observing
+// individual cards would cause constant play/pause fighting with the animation.
+// Carousel videos are managed by the section-level IntersectionObserver below.
 (function () {
-  const videos = document.querySelectorAll('.video-card video');
-  if (!videos.length) return;
+  // Only observe non-carousel videos (e.g. breakfast section, etc.)
+  const allVideos = document.querySelectorAll('video');
+  const carouselVideos = new Set(document.querySelectorAll('.video-card video'));
+
+  const nonCarouselVideos = Array.from(allVideos).filter(v => !carouselVideos.has(v));
+  if (!nonCarouselVideos.length) return;
 
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -427,25 +456,40 @@ mobileMenu.querySelectorAll('a').forEach(link => {
     });
   }, { threshold: 0.2 });
 
-  videos.forEach(v => videoObserver.observe(v));
+  nonCarouselVideos.forEach(v => videoObserver.observe(v));
 })();
 
 // ===== CONVEYOR BELT — DUPLICATE CARDS FOR SEAMLESS LOOP =====
 (function () {
   const showcase = document.querySelector('.video-showcase');
-  if (!showcase) return;
+  const section = document.querySelector('.kitchen-video-section');
+  if (!showcase || !section) return;
 
   const cards = showcase.querySelectorAll('.video-card');
   if (cards.length < 2) return;
 
   const isMobile = window.innerWidth <= 768;
 
+  // On iOS Safari, will-change: transform on the conveyor can cause
+  // compositing budget issues. Remove it on mobile to let the browser decide.
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isMobile || isIOS) {
+    showcase.style.willChange = 'auto';
+  }
+
+  // Set preload="none" on original carousel videos — the browser will fetch
+  // what it needs when autoplay begins; we don't need to pre-buffer metadata.
+  showcase.querySelectorAll('video').forEach(v => {
+    v.preload = 'none';
+  });
+
   // Duplicate all cards for seamless infinite scroll
   cards.forEach(card => {
     const clone = card.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
 
-    // On mobile: replace cloned videos with a static frame to save performance
+    // On mobile: replace cloned videos with a static dark div to save GPU/memory
     if (isMobile) {
       const video = clone.querySelector('video');
       if (video) {
@@ -455,11 +499,33 @@ mobileMenu.querySelectorAll('a').forEach(link => {
       }
     } else {
       const video = clone.querySelector('video');
-      if (video) video.play().catch(() => {});
+      if (video) {
+        // Cloned videos also get preload="none"
+        video.preload = 'none';
+        video.play().catch(() => {});
+      }
     }
 
     showcase.appendChild(clone);
   });
+
+  // Pause CSS animation and all carousel videos when section leaves viewport.
+  // This saves GPU on the compositing thread while the user isn't watching.
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.remove('offscreen');
+        // Resume all original carousel videos
+        showcase.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+      } else {
+        section.classList.add('offscreen');
+        // Pause all carousel videos to release decoder resources
+        showcase.querySelectorAll('video').forEach(v => v.pause());
+      }
+    });
+  }, { threshold: 0 });
+
+  sectionObserver.observe(section);
 
   // Pause on touch (mobile)
   showcase.addEventListener('touchstart', () => {
@@ -467,6 +533,10 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   }, { passive: true });
 
   showcase.addEventListener('touchend', () => {
+    showcase.classList.remove('paused');
+  }, { passive: true });
+
+  showcase.addEventListener('touchcancel', () => {
     showcase.classList.remove('paused');
   }, { passive: true });
 })();

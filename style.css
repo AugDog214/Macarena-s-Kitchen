@@ -28,7 +28,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -427,10 +427,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Subtle top divider lines on sections */
-.section + .section,
-.section + .features-strip,
-.features-strip + .gallery-strip,
-.stats-section + .section {
+.section + .section {
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
@@ -475,55 +472,14 @@ img { max-width: 100%; height: auto; }
 
 .about-text .btn { margin-top: 8px; }
 
-/* ===== STATS COUNTERS ===== */
-.stats-section {
-  background: var(--black);
-  padding: 48px 0;
-  border-bottom: 1px solid #222;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.stat-star {
-  color: var(--gold);
-  margin-bottom: 2px;
-}
-
-.stat-number {
-  font-family: 'Gloucester MT Extra Condensed', var(--font-head);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-}
-
-.stat-label {
-  font-family: var(--font-head);
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 3px;
-  color: var(--gray);
-  text-transform: uppercase;
-}
-
 /* ===== KITCHEN VIDEO SHOWCASE ===== */
 .kitchen-video-section {
   padding: 80px 0 0;
   background: var(--black);
   overflow: hidden;
   position: relative;
+  /* Isolate repaints to this section only */
+  contain: layout style;
 }
 
 /* Fade edges so cards don't look hard-cropped */
@@ -564,11 +520,18 @@ img { max-width: 100%; height: auto; }
   align-items: flex-start;
   width: max-content;
   animation: conveyor 20s linear infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
   will-change: transform;
 }
 
 .video-showcase:hover,
 .video-showcase.paused {
+  animation-play-state: paused;
+}
+
+/* Pause conveyor when section is scrolled off-screen (set by JS IntersectionObserver) */
+.kitchen-video-section.offscreen .video-showcase {
   animation-play-state: paused;
 }
 
@@ -578,10 +541,15 @@ img { max-width: 100%; height: auto; }
   border-radius: 6px;
   flex: 0 0 22vw;
   height: 380px;
+  /* Promote each card to its own GPU compositing layer to prevent
+     full-row repaints during the conveyor translateX animation */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .video-card:nth-child(even) {
-  transform: translateY(70px);
+  /* Combine vertical offset with the GPU-promotion Z translation */
+  transform: translateY(70px) translateZ(0);
 }
 
 .video-wrapper {
@@ -670,7 +638,8 @@ img { max-width: 100%; height: auto; }
     height: auto;
     aspect-ratio: 4 / 5;
     border-radius: 10px;
-    transform: none !important;
+    /* Keep GPU layer via translateZ but remove the stagger offset */
+    transform: translateZ(0) !important;
   }
 
   .video-wrapper video,
@@ -906,111 +875,6 @@ img { max-width: 100%; height: auto; }
   color: var(--gold);
 }
 
-/* ===== FEATURE HIGHLIGHTS ===== */
-.features-strip {
-  background: var(--dark);
-  padding: 48px 0;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
-}
-
-.feature-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-  transition: all var(--transition);
-}
-
-.feature-item:hover .feature-icon {
-  background: var(--gold);
-  color: var(--black);
-}
-
-.feature-item h3 {
-  font-family: var(--font-head);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--white);
-}
-
-.feature-item p {
-  color: var(--gray);
-  font-size: 0.8rem;
-  line-height: 1.5;
-  max-width: 180px;
-}
-
-/* ===== PHOTO GALLERY STRIP ===== */
-.gallery-strip {
-  overflow: hidden;
-  background: var(--black);
-  padding: 4px 0;
-}
-
-.gallery-scroll {
-  display: flex;
-  gap: 4px;
-  animation: scroll-gallery 30s linear infinite;
-  width: max-content;
-}
-
-.gallery-item {
-  width: 280px;
-  height: 200px;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-placeholder {
-  width: 100%;
-  height: 100%;
-  background: var(--dark2);
-  border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gray);
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 16px;
-}
-
-@keyframes scroll-gallery {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 /* ===== SATURDAY BREAKFAST ===== */
 .breakfast-section {
   background: var(--black);
@@ -1213,19 +1077,6 @@ img { max-width: 100%; height: auto; }
 .order-card:hover {
   border-color: var(--gold);
   background: var(--dark3);
-}
-
-.order-logo {
-  height: 28px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.7;
-  margin-bottom: 4px;
-}
-
-.order-card:hover .order-logo {
-  opacity: 1;
 }
 
 .order-name {
@@ -1627,8 +1478,6 @@ img { max-width: 100%; height: auto; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
   .order-grid-delivery { grid-template-columns: repeat(3, 1fr); }
   .special-menu-items { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .catering-grid { padding: 0; }
   .breakfast-media { grid-template-columns: repeat(3, 1fr); }
   .events-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
