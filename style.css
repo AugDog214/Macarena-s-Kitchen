@@ -533,20 +533,19 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 48px;
 }
 
-/* Staggered brick row */
+/* 3-column staggered brick grid */
 .video-showcase {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   padding: 0 6px 80px;
-  align-items: flex-start;
 }
 
 .video-card {
   position: relative;
   overflow: hidden;
   border-radius: 6px;
-  flex: 1;
-  height: 380px;
+  height: 360px;
 }
 
 .video-card:nth-child(even) {
@@ -629,13 +628,11 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 900px) {
   .video-showcase {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 6px 60px;
   }
 
   .video-card {
-    flex: 1 1 calc(50% - 6px);
-    min-width: calc(50% - 6px);
     height: 280px;
   }
 
