@@ -438,12 +438,26 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   const cards = showcase.querySelectorAll('.video-card');
   if (cards.length < 2) return;
 
+  const isMobile = window.innerWidth <= 768;
+
   // Duplicate all cards for seamless infinite scroll
   cards.forEach(card => {
     const clone = card.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
-    const video = clone.querySelector('video');
-    if (video) video.play().catch(() => {});
+
+    // On mobile: replace cloned videos with a static frame to save performance
+    if (isMobile) {
+      const video = clone.querySelector('video');
+      if (video) {
+        const poster = document.createElement('div');
+        poster.style.cssText = 'width:100%;height:100%;background:#1a1a1a;';
+        video.replaceWith(poster);
+      }
+    } else {
+      const video = clone.querySelector('video');
+      if (video) video.play().catch(() => {});
+    }
+
     showcase.appendChild(clone);
   });
 
