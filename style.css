@@ -523,6 +523,29 @@ img { max-width: 100%; height: auto; }
   padding: 80px 0 0;
   background: var(--black);
   overflow: hidden;
+  position: relative;
+}
+
+/* Fade edges so cards don't look hard-cropped */
+.kitchen-video-section::before,
+.kitchen-video-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.kitchen-video-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--black), transparent);
+}
+
+.kitchen-video-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--black), transparent);
 }
 
 .kitchen-video-section .section-title {
