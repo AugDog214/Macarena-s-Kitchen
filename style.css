@@ -562,7 +562,7 @@ img { max-width: 100%; height: auto; }
   gap: 6px;
   padding: 0 0 80px;
   align-items: flex-start;
-  overflow: hidden;
+  width: max-content;
   animation: conveyor 20s linear infinite;
   will-change: transform;
 }
