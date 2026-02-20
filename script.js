@@ -430,10 +430,8 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   videos.forEach(v => videoObserver.observe(v));
 })();
 
-// ===== MOBILE CONVEYOR BELT — DUPLICATE CARDS FOR SEAMLESS LOOP =====
+// ===== CONVEYOR BELT — DUPLICATE CARDS FOR SEAMLESS LOOP =====
 (function () {
-  if (window.innerWidth > 768) return;
-
   const showcase = document.querySelector('.video-showcase');
   if (!showcase) return;
 
@@ -444,13 +442,12 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   cards.forEach(card => {
     const clone = card.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
-    // Re-trigger autoplay on cloned videos
     const video = clone.querySelector('video');
     if (video) video.play().catch(() => {});
     showcase.appendChild(clone);
   });
 
-  // Pause on touch, resume on release
+  // Pause on touch (mobile)
   showcase.addEventListener('touchstart', () => {
     showcase.classList.add('paused');
   }, { passive: true });
