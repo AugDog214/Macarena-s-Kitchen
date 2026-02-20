@@ -564,13 +564,13 @@ img { max-width: 100%; height: auto; }
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.75) contrast(1.1);
+  filter: brightness(0.92) contrast(1.05);
   transition: filter 0.5s ease, transform 0.8s ease;
 }
 
 .video-card:hover .video-wrapper video,
 .video-card:hover .video-wrapper img {
-  filter: brightness(0.95) contrast(1.05);
+  filter: brightness(1.0) contrast(1.02);
   transform: scale(1.04);
 }
 
@@ -605,7 +605,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .video-card-featured .video-wrapper video {
-  filter: brightness(0.8) contrast(1.1);
+  filter: brightness(0.92) contrast(1.05);
 }
 
 /* Gold accent line on hover */
@@ -645,7 +645,7 @@ img { max-width: 100%; height: auto; }
   .video-wrapper video,
   .video-wrapper img {
     transition: none;
-    filter: brightness(0.8);
+    filter: brightness(0.92);
   }
 
   .video-card:hover .video-wrapper video,
