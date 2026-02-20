@@ -429,3 +429,54 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
   videos.forEach(v => videoObserver.observe(v));
 })();
+
+// ===== MOBILE AUTO-SCROLL CAROUSEL =====
+(function () {
+  if (window.innerWidth > 768) return;
+
+  const showcase = document.querySelector('.video-showcase');
+  if (!showcase) return;
+
+  const cards = showcase.querySelectorAll('.video-card');
+  if (cards.length < 2) return;
+
+  let current = 0;
+  let autoTimer = null;
+  let userTouching = false;
+
+  function scrollToCard(index) {
+    const card = cards[index];
+    if (!card) return;
+    showcase.scrollTo({ left: card.offsetLeft - (showcase.offsetWidth - card.offsetWidth) / 2, behavior: 'smooth' });
+  }
+
+  function nextCard() {
+    if (userTouching) return;
+    current = (current + 1) % cards.length;
+    scrollToCard(current);
+  }
+
+  // Pause on touch
+  showcase.addEventListener('touchstart', () => {
+    userTouching = true;
+    clearInterval(autoTimer);
+  }, { passive: true });
+
+  showcase.addEventListener('touchend', () => {
+    userTouching = false;
+    autoTimer = setInterval(nextCard, 3500);
+  }, { passive: true });
+
+  // Start auto-scroll when section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        autoTimer = setInterval(nextCard, 3500);
+      } else {
+        clearInterval(autoTimer);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(showcase);
+})();

@@ -975,8 +975,9 @@ img { max-width: 100%; height: auto; }
 
 /* ===== SATURDAY BREAKFAST ===== */
 .breakfast-section {
-  background: var(--dark);
+  background: var(--black);
   text-align: center;
+  border-top: none !important;
 }
 
 .breakfast-hours {
