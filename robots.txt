@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /animated-logo.html
 
 Sitemap: https://macarenaskitchen.com/sitemap.xml

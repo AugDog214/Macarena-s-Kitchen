@@ -128,6 +128,7 @@ img { max-width: 100%; height: auto; }
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
   background: rgba(10,10,10,0.95);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 1000;
   border-bottom: 1px solid #222;
@@ -1015,7 +1016,8 @@ img { max-width: 100%; height: auto; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
-  margin-bottom: 40px;
+  max-width: 900px;
+  margin: 0 auto 48px;
 }
 
 /* ===== UPCOMING EVENTS ===== */
@@ -1438,14 +1440,6 @@ img { max-width: 100%; height: auto; }
   text-transform: uppercase;
 }
 
-/* ===== SPECIAL MENUS ===== */
-.special-menus {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 700px;
-  margin: 0 auto 48px;
-}
 
 .special-menu-card {
   background: var(--dark2);
@@ -1559,7 +1553,6 @@ img { max-width: 100%; height: auto; }
   .special-menu-items { grid-template-columns: 1fr; }
   .catering-grid { padding: 0; }
   .events-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
-  .reviews-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
   .breakfast-time { font-size: 2.8rem; }
 }
 
@@ -1791,4 +1784,12 @@ img { max-width: 100%; height: auto; }
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* ===== LATE RESPONSIVE OVERRIDES (must come after base rules) ===== */
+@media (max-width: 900px) {
+  .reviews-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 768px) {
+  .faq-question { font-size: 0.95rem; }
 }

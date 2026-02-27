@@ -27,8 +27,25 @@
         <a href="tel:+12393990995" class="nav-phone">239-399-0995</a>
         <a href="order.html" class="btn btn-primary">ORDER ONLINE</a>
       </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="tel:+12393990995" class="mobile-phone">239-399-0995</a>
+      <a href="order.html" class="btn btn-primary">ORDER ONLINE</a>
+      <div class="mobile-tabs">
+        <a href="/#about">ABOUT</a>
+        <a href="/#menu">MENU</a>
+        <a href="order.html">ORDER</a>
+        <a href="/#location">FIND US</a>
+      </div>
     </div>
   </nav>
+  <script>
+    const hb=document.getElementById('navHamburger'),mm=document.getElementById('mobileMenu');
+    if(hb&&mm){hb.addEventListener('click',()=>{const o=mm.classList.toggle('open');hb.classList.toggle('open',o);hb.setAttribute('aria-expanded',o)});}
+  </script>
 
   <main class="error-page">
     <div class="container">
