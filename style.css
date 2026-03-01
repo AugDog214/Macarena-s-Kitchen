@@ -541,7 +541,8 @@ img { max-width: 100%; height: auto; }
   overflow: hidden;
   border-radius: 6px;
   flex: 0 0 22vw;
-  height: 380px;
+  aspect-ratio: 9 / 16;
+  height: auto;
   /* Promote each card to its own GPU compositing layer to prevent
      full-row repaints during the conveyor translateX animation */
   will-change: transform;
@@ -637,7 +638,7 @@ img { max-width: 100%; height: auto; }
   .video-card {
     flex: 0 0 70vw;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 9 / 16;
     border-radius: 10px;
     /* Keep GPU layer via translateZ but remove the stagger offset */
     transform: translateZ(0) !important;
@@ -788,6 +789,20 @@ img { max-width: 100%; height: auto; }
 
 .menu-item.featured .menu-name { color: var(--gold); }
 
+/* Top Seller Star */
+.top-seller-star {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-right: 6px;
+  animation: starPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.5));
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.8; }
+}
+
 .menu-sub-heading {
   font-family: var(--font-head);
   font-size: 0.9rem;
@@ -810,18 +825,27 @@ img { max-width: 100%; height: auto; }
 }
 
 /* ===== CATERING & EVENTS ===== */
-.catering-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 700px;
-  margin: 0 auto 48px;
+.catering-menu-embed {
+  max-width: 800px;
+  margin: 32px auto;
+}
+
+.catering-pdf {
+  width: 100%;
+  height: 900px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: var(--dark2);
 }
 
 .catering-cta {
   text-align: center;
   margin-top: 32px;
   margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .catering-contact {
@@ -834,46 +858,8 @@ img { max-width: 100%; height: auto; }
   color: var(--gold);
 }
 
-.catering-card {
-  background: var(--dark2);
-  border: 1px solid #333;
-  padding: 40px 32px;
-}
-
-.catering-card h3 {
-  font-family: var(--font-head);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-
-.catering-card p {
-  color: var(--gray-light);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.catering-list {
-  list-style: none;
-  margin-bottom: 24px;
-}
-
-.catering-list li {
-  color: var(--gray-light);
-  font-size: 0.9rem;
-  padding: 6px 0;
-  padding-left: 18px;
-  position: relative;
-}
-
-.catering-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
+@media (max-width: 768px) {
+  .catering-pdf { height: 600px; }
 }
 
 /* ===== SATURDAY BREAKFAST ===== */
@@ -1551,7 +1537,6 @@ img { max-width: 100%; height: auto; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
   .order-grid-delivery { grid-template-columns: repeat(3, 1fr); }
   .special-menu-items { grid-template-columns: 1fr; }
-  .catering-grid { padding: 0; }
   .events-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
   .breakfast-time { font-size: 2.8rem; }
 }
