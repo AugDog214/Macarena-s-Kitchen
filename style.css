@@ -16,7 +16,6 @@
   --gold: #fcd823;
   --gold-dim: #c4a91a;
   --red: #b71c1c;
-  --red-bright: #d32f2f;
   --white: #ffffff;
   --gray: #888888;
   --gray-light: #aaaaaa;
@@ -521,8 +520,6 @@ img { max-width: 100%; height: auto; }
   align-items: flex-start;
   width: max-content;
   animation: conveyor 20s linear infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: none;
   will-change: transform;
 }
 
@@ -604,10 +601,6 @@ img { max-width: 100%; height: auto; }
 .video-card:hover .video-label {
   opacity: 1;
   transform: translateY(0);
-}
-
-.video-card-featured .video-wrapper video {
-  filter: brightness(0.92) contrast(1.05);
 }
 
 /* Gold accent line on hover */
@@ -794,19 +787,6 @@ img { max-width: 100%; height: auto; }
   padding-left: 14px;
 }
 
-/* Screen reader only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* Top Seller Star */
 .top-seller-star {
   color: var(--gold);
@@ -924,6 +904,7 @@ img { max-width: 100%; height: auto; }
 .fav-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
   gap: 4px;
   max-width: 1200px;
   margin: 40px auto 0;
@@ -1164,13 +1145,6 @@ img { max-width: 100%; height: auto; }
 .order-card:hover {
   border-color: var(--gold);
   background: var(--dark3);
-}
-
-.order-name {
-  font-family: var(--font-head);
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 2px;
 }
 
 .order-cta {
@@ -1731,7 +1705,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .faq-item.open .faq-answer {
-  max-height: 200px;
+  max-height: 500px;
 }
 
 .faq-answer p {
