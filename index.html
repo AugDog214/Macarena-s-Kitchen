@@ -762,9 +762,12 @@
           <img src="assets/farmers-market-menu.png" alt="Macarena's Kitchen at the Cape Coral Farmer's Market — Fresh Ceviche, Eggrolls, Empanadas, Kabobs, Aguas Frescas" class="dish-img" draggable="false" loading="lazy">
         </div>
         <div class="dish-slide" data-index="2">
-          <img src="assets/dish-salmon-pasta.webp" alt="Grilled Salmon Pasta" class="dish-img" draggable="false" loading="lazy">
+          <img src="assets/friday-frenzy-menu.png" alt="Friday Frenzy at Macarena's Kitchen — Every Friday 11AM-8PM" class="dish-img" draggable="false" loading="lazy">
         </div>
         <div class="dish-slide" data-index="3">
+          <img src="assets/dish-salmon-pasta.webp" alt="Grilled Salmon Pasta" class="dish-img" draggable="false" loading="lazy">
+        </div>
+        <div class="dish-slide" data-index="4">
           <img src="assets/dish-cheesesteak.webp" alt="Philly Cheesesteak with fries" class="dish-img" draggable="false" loading="lazy">
         </div>
       </div>
@@ -790,8 +793,9 @@
     <div class="dish-nav" id="dishNav">
       <button class="dish-dot active" data-index="0" aria-label="Taco Tuesday"></button>
       <button class="dish-dot" data-index="1" aria-label="Farmer's Market"></button>
-      <button class="dish-dot" data-index="2" aria-label="Salmon Pasta"></button>
-      <button class="dish-dot" data-index="3" aria-label="Philly Cheesesteak"></button>
+      <button class="dish-dot" data-index="2" aria-label="Friday Frenzy"></button>
+      <button class="dish-dot" data-index="3" aria-label="Salmon Pasta"></button>
+      <button class="dish-dot" data-index="4" aria-label="Philly Cheesesteak"></button>
     </div>
   </section>
 
@@ -1023,7 +1027,7 @@
     <div class="video-showcase">
       <div class="video-card">
         <div class="video-wrapper">
-          <video autoplay muted loop playsinline preload="none">
+          <video autoplay muted loop playsinline preload="none" aria-label="Chicken Marsala cooking video">
             <source src="assets/videos/chicken-marsala.mp4" type="video/mp4">
           </video>
           <div class="video-overlay">
@@ -1039,9 +1043,9 @@
           </div>
         </div>
       </div>
-      <div class="video-card video-card-featured">
+      <div class="video-card">
         <div class="video-wrapper">
-          <video autoplay muted loop playsinline preload="none">
+          <video autoplay muted loop playsinline preload="none" aria-label="Kitchen behind the scenes video">
             <source src="assets/videos/kitchen-mix.mp4" type="video/mp4">
           </video>
           <div class="video-overlay">
@@ -1059,7 +1063,7 @@
       </div>
       <div class="video-card">
         <div class="video-wrapper">
-          <video autoplay muted loop playsinline preload="none">
+          <video autoplay muted loop playsinline preload="none" aria-label="Ziti alla Vodka cooking video">
             <source src="assets/videos/ziti-vodka.mp4" type="video/mp4">
           </video>
           <div class="video-overlay">
@@ -1173,10 +1177,13 @@
 
       <!-- SPECIAL MENUS -->
       <div class="special-menus">
-        <div class="special-menu-card stpatricks-image-card">
+        <div class="special-menu-card special-image-card">
           <img src="assets/taco-tuesday-menu.png" alt="Taco Tuesday Menu — Every Tuesday 11AM-8PM at Macarena's Kitchen: Fajitas, Carnitas, Steak, Chicken, Shrimp Tacos, Nachos, and more" loading="lazy">
         </div>
-        <div class="special-menu-card stpatricks-image-card">
+        <div class="special-menu-card special-image-card">
+          <img src="assets/friday-frenzy-menu.png" alt="Friday Frenzy Menu — Every Friday 11AM-8PM at Macarena's Kitchen" loading="lazy">
+        </div>
+        <div class="special-menu-card special-image-card">
           <img src="assets/farmers-market-menu.png" alt="Macarena's Kitchen at the Cape Coral Farmer's Market — Fresh Ceviche Bar, Eggrolls, Empanadas, Grilled Kabobs, Aguas Frescas" loading="lazy">
         </div>
       </div>
@@ -1189,6 +1196,15 @@
           <div class="event-info">
             <h3>TACO TUESDAY</h3>
             <p>Fresh tacos every Tuesday — 11AM to 8PM! Fajitas, carnitas, steak, chicken, shrimp tacos and more!</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date">
+            <span class="event-month">EVERY FRIDAY</span>
+          </div>
+          <div class="event-info">
+            <h3>FRIDAY FRENZY</h3>
+            <p>Friday specials all day — 11AM to 8PM! Check out our Friday Frenzy menu for weekly deals!</p>
           </div>
         </div>
         <div class="event-card">
@@ -1256,7 +1272,7 @@
   </section>
 
   <!-- REVIEWS -->
-  <section class="section section-dark">
+  <section id="reviews" class="section section-dark">
     <div class="container">
       <h2 class="section-title">WHAT PEOPLE SAY</h2>
       <p class="section-sub">5.0 ★★★★★ on Google · 31 reviews</p>
@@ -1331,24 +1347,24 @@
       <h2 class="section-title">FREQUENTLY ASKED</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Where is Macarena's Kitchen located?</button>
-          <div class="faq-answer"><p>Macarena's Kitchen is located inside the Fraternal Order of Eagles #3957 at 4647 SE 9th Pl, Cape Coral, FL 33904. We're in SE Cape Coral, easy to find off Del Prado Blvd.</p></div>
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Where is Macarena's Kitchen located?</button>
+          <div class="faq-answer" id="faq-answer-1"><p>Macarena's Kitchen is located inside the Fraternal Order of Eagles #3957 at 4647 SE 9th Pl, Cape Coral, FL 33904. We're in SE Cape Coral, easy to find off Del Prado Blvd.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">What are your hours?</button>
-          <div class="faq-answer"><p>Closed Monday and Sunday. Tuesday through Friday 11AM-8PM. Saturday: Breakfast/Brunch 9AM-12:30PM, closed 12:30-3PM, reopens 3-8PM.</p></div>
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">What are your hours?</button>
+          <div class="faq-answer" id="faq-answer-2"><p>Closed Monday and Sunday. Tuesday through Friday 11AM-8PM. Saturday: Breakfast/Brunch 9AM-12:30PM, closed 12:30-3PM, reopens 3-8PM.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Does Macarena's Kitchen deliver in Cape Coral?</button>
-          <div class="faq-answer"><p>Yes! Order delivery through DoorDash, Uber Eats, or Grubhub. You can also order directly from our website or call 239-399-0995 for pickup and takeout.</p></div>
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Does Macarena's Kitchen deliver in Cape Coral?</button>
+          <div class="faq-answer" id="faq-answer-3"><p>Yes! Order delivery through DoorDash, Uber Eats, or Grubhub. You can also order directly from our website or call 239-399-0995 for pickup and takeout.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Do you serve breakfast?</button>
-          <div class="faq-answer"><p>Yes, breakfast and brunch are served every Saturday from 9AM to 12:30PM. The menu includes pancakes, waffles, omelets, steak and eggs, French toast, cinnamon rolls, and more.</p></div>
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Do you serve breakfast?</button>
+          <div class="faq-answer" id="faq-answer-4"><p>Yes, breakfast and brunch are served every Saturday from 9AM to 12:30PM. The menu includes pancakes, waffles, omelets, steak and eggs, French toast, cinnamon rolls, and more.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Does Macarena's Kitchen offer catering?</button>
-          <div class="faq-answer"><p>Yes! We offer full-service and drop-off catering for events of all sizes. Custom menus available with appetizers, entrees, sides, and desserts. Call 239-399-0995 or visit our catering page to get started.</p></div>
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Does Macarena's Kitchen offer catering?</button>
+          <div class="faq-answer" id="faq-answer-5"><p>Yes! We offer full-service and drop-off catering for events of all sizes. Custom menus available with appetizers, entrees, sides, and desserts. Call 239-399-0995 or visit our catering page to get started.</p></div>
         </div>
       </div>
     </div>

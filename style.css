@@ -341,8 +341,23 @@ img { max-width: 100%; height: auto; }
   filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6));
 }
 
+/* Friday Frenzy flyer */
+.dish-slide[data-index="2"] {
+  padding-left: 5%;
+  padding-right: 5%;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dish-slide[data-index="2"] .dish-img {
+  width: 55%;
+  max-width: 650px;
+  margin-top: -10%;
+  border-radius: 12px;
+  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6));
+}
+
 /* Cheesesteak plate */
-.dish-slide[data-index="3"] .dish-img {
+.dish-slide[data-index="4"] .dish-img {
   width: 145%;
   max-width: 1700px;
 }
@@ -1016,8 +1031,8 @@ img { max-width: 100%; height: auto; }
   }
 }
 
-/* ===== ST. PATRICK'S DAY SPECIAL ===== */
-.stpatricks-image-card {
+/* ===== SPECIAL MENU CARDS ===== */
+.special-image-card {
   background: none;
   border: none;
   padding: 0;
@@ -1025,7 +1040,7 @@ img { max-width: 100%; height: auto; }
   overflow: hidden;
 }
 
-.stpatricks-image-card img {
+.special-image-card img {
   width: 100%;
   height: auto;
   display: block;
@@ -1034,9 +1049,9 @@ img { max-width: 100%; height: auto; }
 
 .special-menus {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto 48px;
 }
 
@@ -1461,63 +1476,6 @@ img { max-width: 100%; height: auto; }
   text-align: center;
 }
 
-.special-menu-card.featured {
-  border-color: var(--gold);
-  border-width: 2px;
-}
-
-.special-menu-badge {
-  display: inline-block;
-  font-family: var(--font-head);
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: var(--black);
-  background: var(--gold);
-  padding: 4px 14px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.special-menu-card h3 {
-  font-family: var(--font-head);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-
-.special-menu-card p {
-  color: var(--gray-light);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.special-menu-items {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  text-align: left;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.special-menu-items li {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  padding: 4px 0 4px 18px;
-  position: relative;
-}
-
-.special-menu-items li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
-
 /* ===== FOOTER DINE-IN BANNER ===== */
 .footer-dine-in-banner {
   display: flex;
@@ -1563,7 +1521,7 @@ img { max-width: 100%; height: auto; }
   .menu-list-compact { columns: 1; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
   .order-grid-delivery { grid-template-columns: repeat(3, 1fr); }
-  .special-menu-items { grid-template-columns: 1fr; }
+  .special-menus { grid-template-columns: 1fr; }
   .events-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
   .breakfast-time { font-size: 2.8rem; }
 }
@@ -1647,8 +1605,25 @@ img { max-width: 100%; height: auto; }
     border-radius: 8px;
   }
 
+  /* Friday Frenzy flyer — mobile */
+  .dish-slide[data-index="2"] {
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .dish-slide[data-index="2"] .dish-img {
+    width: 52%;
+    max-width: none;
+    margin-top: 0;
+    margin-bottom: 12%;
+    border-radius: 8px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+  }
+
   /* Cheesesteak plate — mobile */
-  .dish-slide[data-index="3"] .dish-img {
+  .dish-slide[data-index="4"] .dish-img {
     width: 120%;
     max-width: none;
   }
