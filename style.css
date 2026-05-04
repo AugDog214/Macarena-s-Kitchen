@@ -309,7 +309,7 @@ img { max-width: 100%; height: auto; }
   margin-top: -65%;
 }
 
-/* Taco Tuesday flyer */
+/* Summer Menu flyer */
 .dish-slide[data-index="0"] {
   padding-left: 5%;
   padding-right: 5%;
@@ -341,38 +341,8 @@ img { max-width: 100%; height: auto; }
   filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6));
 }
 
-/* Friday Frenzy flyer */
-.dish-slide[data-index="2"] {
-  padding-left: 5%;
-  padding-right: 5%;
-  align-items: center;
-  justify-content: flex-end;
-}
-.dish-slide[data-index="2"] .dish-img {
-  width: 55%;
-  max-width: 650px;
-  margin-top: -10%;
-  border-radius: 12px;
-  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6));
-}
-
-/* Easter menu flyer */
-.dish-slide[data-index="3"] {
-  padding-left: 5%;
-  padding-right: 5%;
-  align-items: center;
-  justify-content: flex-end;
-}
-.dish-slide[data-index="3"] .dish-img {
-  width: 55%;
-  max-width: 650px;
-  margin-top: -10%;
-  border-radius: 12px;
-  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6));
-}
-
 /* Cheesesteak plate */
-.dish-slide[data-index="5"] .dish-img {
+.dish-slide[data-index="2"] .dish-img {
   width: 145%;
   max-width: 1700px;
 }
@@ -731,66 +701,6 @@ img { max-width: 100%; height: auto; }
 }
 
 /* ===== MENU ===== */
-.menu-nav {
-  display: flex;
-  gap: 4px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0;
-}
-
-.menu-nav::-webkit-scrollbar { display: none; }
-
-.menu-tab {
-  background: none;
-  border: none;
-  padding: 12px 20px;
-  font-family: var(--font-head);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  color: var(--gray);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all var(--transition);
-  border-bottom: 2px solid transparent;
-  text-transform: uppercase;
-}
-
-.menu-tab:hover { color: var(--white); }
-
-.menu-tab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-
-.tab-icon {
-  vertical-align: -2px;
-  margin-right: 5px;
-  opacity: 0.6;
-  transition: opacity var(--transition);
-}
-
-.menu-tab.active .tab-icon,
-.menu-tab:hover .tab-icon {
-  opacity: 1;
-}
-
-.menu-panel { display: none; }
-.menu-panel.active { display: block; }
-
-.menu-note {
-  font-family: var(--font-head);
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 24px;
-  padding: 8px 0;
-  border-bottom: 1px solid #333;
-}
-
 .menu-list { max-width: 700px; margin: 0 auto; }
 
 .menu-list-compact { columns: 2; column-gap: 40px; }
@@ -865,24 +775,21 @@ img { max-width: 100%; height: auto; }
 }
 
 .menu-sub-heading {
-  font-family: var(--font-head);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--white);
-  margin: 32px auto 16px;
+  font-family: 'Gloucester MT Extra Condensed', var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 48px auto 20px;
+  padding-bottom: 12px;
   max-width: 700px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-.badge {
-  display: inline-block;
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.65rem;
-  padding: 2px 8px;
-  letter-spacing: 1px;
-  vertical-align: middle;
-  margin-left: 6px;
+.menu-sub-heading:first-of-type {
+  margin-top: 16px;
 }
 
 /* ===== CATERING & EVENTS ===== */
@@ -1534,6 +1441,7 @@ img { max-width: 100%; height: auto; }
   .location-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .menu-list-compact { columns: 1; }
+  .menu-sub-heading { font-size: 1.3rem; letter-spacing: 3px; margin-top: 36px; }
   .order-grid { grid-template-columns: repeat(2, 1fr); }
   .order-grid-delivery { grid-template-columns: repeat(3, 1fr); }
   .special-menus { grid-template-columns: 1fr; }
@@ -1548,7 +1456,6 @@ img { max-width: 100%; height: auto; }
   .order-grid-delivery { grid-template-columns: 1fr; max-width: 400px; }
   .section { padding: 60px 0; }
   .nav-links a, .mobile-tabs a { min-height: 44px; display: inline-flex; align-items: center; }
-  .menu-tab { min-height: 44px; }
   .square-order-container iframe { height: 1200px; }
 
   /* Mobile hero */
@@ -1588,7 +1495,7 @@ img { max-width: 100%; height: auto; }
   }
   .dish-slide { padding-left: 5%; }
 
-  /* Taco Tuesday flyer — mobile */
+  /* Summer Menu flyer — mobile */
   .dish-slide[data-index="0"] {
     padding-left: 0;
     padding-right: 0;
@@ -1620,42 +1527,8 @@ img { max-width: 100%; height: auto; }
     border-radius: 8px;
   }
 
-  /* Friday Frenzy flyer — mobile */
-  .dish-slide[data-index="2"] {
-    padding-left: 0;
-    padding-right: 0;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  .dish-slide[data-index="2"] .dish-img {
-    width: 52%;
-    max-width: none;
-    margin-top: 0;
-    margin-bottom: 12%;
-    border-radius: 8px;
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
-  }
-
-  /* Easter menu flyer — mobile */
-  .dish-slide[data-index="3"] {
-    padding-left: 0;
-    padding-right: 0;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  .dish-slide[data-index="3"] .dish-img {
-    width: 52%;
-    max-width: none;
-    margin-top: 0;
-    margin-bottom: 12%;
-    border-radius: 8px;
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
-  }
-
   /* Cheesesteak plate — mobile */
-  .dish-slide[data-index="5"] .dish-img {
+  .dish-slide[data-index="2"] .dish-img {
     width: 120%;
     max-width: none;
   }
